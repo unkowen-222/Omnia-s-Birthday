@@ -1,0 +1,2259 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Omnia ✨💖</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+  <!-- Suppress Tailwind CDN production notice in console -->
+  <script>
+    (function() {
+      const _warn = console.warn;
+      console.warn = function(...args) {
+        if (typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com should not be used in production')) return;
+        _warn.apply(console, args);
+      };
+    })();
+  </script>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <!-- Lucide Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --wine: #6f1d3a;
+      --wine-dark: #4e1227;
+      --rose: #d95d7c;
+      --rose-light: #fde8ee;
+      --cream: #fffaf5;
+      --gold: #c99752;
+      --gold-light: #f5dfb8;
+      --ink: #543343;
+    }
+    * { box-sizing: border-box; }
+    body {
+      width: 100%;
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background: #fff8f6;
+      color: var(--ink);
+    }
+    .display-font { font-family: "Playfair Display", Georgia, serif; }
+    .hand-font { font-family: "Dancing Script", cursive; }
+    .detective-font { font-family: "Special Elite", monospace; }
+
+    /* Romantic glowing ambient background with floral backdrop */
+    .romantic-shell {
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background: radial-gradient(circle at 10% 15%, #ffffff 0%, #fff0f4 35%, #fce7ee 100%);
+    }
+    .flower-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background-image: url('assets/flowers_bg.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.12;
+      filter: saturate(1.2) blur(1px);
+      pointer-events: none;
+    }
+    .romantic-shell::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 220, 232, 0.85) 0%, transparent 40%),
+        radial-gradient(circle at 85% 15%, rgba(255, 205, 220, 0.75) 0%, transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(217, 93, 124, 0.22) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .romantic-shell::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.25;
+      background-image: radial-gradient(rgba(111, 29, 58, 0.22) 0.75px, transparent 0.75px);
+      background-size: 20px 20px;
+      pointer-events: none;
+    }
+
+    /* Falling Rose Petals & Floating Blossom Hearts */
+    .petal {
+      position: fixed;
+      top: -40px;
+      width: 18px;
+      height: 26px;
+      border-radius: 70% 30% 70% 30%;
+      background: linear-gradient(135deg, #ffd3df 0%, #e67290 100%);
+      box-shadow: 0 4px 10px rgba(217, 93, 124, 0.25);
+      pointer-events: none;
+      opacity: 0.75;
+      z-index: 5;
+      animation: fall linear infinite;
+    }
+    .petal:nth-child(1) { left: 6%; animation-duration: 11s; animation-delay: 0s; }
+    .petal:nth-child(2) { left: 24%; animation-duration: 15s; animation-delay: -4s; width: 15px; height: 22px; }
+    .petal:nth-child(3) { left: 45%; animation-duration: 12s; animation-delay: -7s; }
+    .petal:nth-child(4) { left: 68%; animation-duration: 16s; animation-delay: -2s; width: 20px; height: 28px; }
+    .petal:nth-child(5) { left: 88%; animation-duration: 13s; animation-delay: -9s; }
+    .petal:nth-child(6) { left: 35%; animation-duration: 14s; animation-delay: -5s; width: 14px; height: 20px; }
+
+    @keyframes fall {
+      0% { transform: translateY(-30px) rotate(0deg) translateX(0); }
+      50% { transform: translateY(50vh) rotate(180deg) translateX(40px); }
+      100% { transform: translateY(105vh) rotate(360deg) translateX(-20px); }
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -30px;
+      color: rgba(217, 93, 124, 0.38);
+      pointer-events: none;
+      z-index: 4;
+      animation: floatUp linear infinite;
+    }
+    .floating-heart:nth-child(7) { left: 14%; animation-duration: 14s; font-size: 20px; animation-delay: 1s; }
+    .floating-heart:nth-child(8) { left: 38%; animation-duration: 18s; font-size: 26px; animation-delay: 4s; }
+    .floating-heart:nth-child(9) { left: 62%; animation-duration: 13s; font-size: 18px; animation-delay: 2s; }
+    .floating-heart:nth-child(10) { left: 82%; animation-duration: 16s; font-size: 24px; animation-delay: 6s; }
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.65; }
+      90% { opacity: 0.65; }
+      100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Page Navigation & Transitions */
+    .page {
+      display: none;
+      width: 100%;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.25rem;
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    .page.active {
+      display: flex;
+      animation: pageIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes pageIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Glass Panels */
+    .panel {
+      box-shadow: 0 25px 60px -15px rgba(111, 29, 58, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.85) inset;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, #d95d7c 0%, #a42c4e 100%);
+      color: white;
+      box-shadow: 0 8px 22px rgba(217, 93, 124, 0.35);
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(217, 93, 124, 0.45);
+      filter: brightness(1.05);
+    }
+    .btn-primary:active { transform: translateY(1px); }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #e3ba7b 0%, #c99752 100%);
+      color: #3b210a;
+      box-shadow: 0 8px 22px rgba(201, 151, 82, 0.3);
+      transition: all 0.25s ease;
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(201, 151, 82, 0.42);
+    }
+
+    /* BOOOOM Explosion Effect */
+    #boom-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0;
+      display: none;
+      background: radial-gradient(circle, rgba(255, 245, 180, 0.95) 0%, rgba(255, 120, 160, 0.85) 45%, rgba(111, 29, 58, 0.95) 100%);
+    }
+    #boom-overlay.play {
+      display: block;
+      animation: boomAnimation 1.3s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+    }
+    @keyframes boomAnimation {
+      0% { opacity: 0; transform: scale(0.6); }
+      15% { opacity: 1; transform: scale(1.05); }
+      100% { opacity: 0; transform: scale(1.4); }
+    }
+
+    /* Flower Wipe Transition */
+    .flower-wipe {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: rgba(111, 29, 58, 0.25);
+      pointer-events: none;
+      opacity: 0;
+      z-index: 100;
+    }
+    .flower-wipe.play { animation: wipe 0.85s ease both; }
+    .bloom {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #f9b5c8;
+      box-shadow:
+        0 -55px #f8d9e2, 48px -28px #f3a2b9, 48px 28px #f8d9e2,
+        0 55px #f3a2b9, -48px 28px #f8d9e2, -48px -28px #f3a2b9;
+    }
+    @keyframes wipe {
+      0% { opacity: 0; transform: scale(0.1); }
+      45% { opacity: 1; transform: scale(26); }
+      100% { opacity: 0; transform: scale(40); }
+    }
+
+    /* Detective Dossier & Stamp Animation */
+    .dossier-card {
+      background: #fffcf7 url('assets/vintage_paper.jpg') center/cover;
+      border: 2px solid #b8860b;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+    .stamp-badge {
+      display: none;
+      transform: rotate(-10deg) scale(0.6);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .stamp-badge.stamped {
+      display: inline-block;
+      animation: stampDown 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    @keyframes stampDown {
+      0% { transform: scale(3.5) rotate(-30deg); opacity: 0; }
+      100% { transform: scale(1) rotate(-8deg); opacity: 1; }
+    }
+
+    /* Magnifying glass scan animation */
+    .scanner-beam {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #ff3366, #ffcc00, transparent);
+      box-shadow: 0 0 15px #ff3366;
+      animation: scanSweep 2s ease-in-out infinite alternate;
+    }
+    @keyframes scanSweep {
+      0% { top: 0%; }
+      100% { top: 100%; }
+    }
+
+    /* Interactive 3D Envelope */
+    .envelope-scene { perspective: 1200px; }
+    .envelope-box {
+      width: min(100%, 460px);
+      min-height: 290px;
+      position: relative;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+    .envelope-wrapper {
+      position: absolute;
+      inset: 28px 0 0;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #e593aa;
+      box-shadow: 0 20px 45px rgba(111, 29, 58, 0.22);
+      transition: transform 0.4s ease;
+    }
+    .envelope-wrapper::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 160px 230px;
+      border-color: transparent transparent #da7c97 transparent;
+      z-index: 3;
+    }
+    .envelope-wrapper::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 160px 230px 0 0;
+      border-color: #ce6f8a transparent transparent transparent;
+      z-index: 3;
+    }
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 56%;
+      background: #f1adbf;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top;
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      z-index: 5;
+    }
+    .envelope-seal {
+      position: absolute;
+      left: 50%;
+      top: 42%;
+      transform: translate(-50%, -50%);
+      z-index: 6;
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: radial-gradient(circle at 35% 30%, #a42c4e, #6f1d3a);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(111, 29, 58, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .envelope-seal:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 0 10px 25px rgba(111, 29, 58, 0.5), 0 0 0 4px #ffd3df;
+    }
+
+    /* Floating Center Parchment Paper Modals (Shared for All Letters) */
+    .paper-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      background: rgba(15, 4, 9, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      opacity: 0;
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .paper-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+    .paper-container {
+      position: relative;
+      max-width: 680px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      border-radius: 24px;
+      padding: 3rem 2rem 2.5rem;
+      background: #fdf6e9 url('assets/vintage_paper.jpg') center/cover;
+      border: 2px solid #d4af37;
+      box-shadow: 
+        0 35px 85px rgba(0, 0, 0, 0.75), 
+        0 0 0 1px rgba(255, 255, 255, 0.75) inset, 
+        0 0 45px rgba(201, 151, 82, 0.4),
+        0 12px 30px rgba(111, 29, 58, 0.25);
+      transform: scale(0.9) translateY(24px);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      color: #381d13;
+      animation: floatPaper 4.5s ease-in-out infinite alternate;
+    }
+    .paper-modal.active .paper-container {
+      transform: scale(1) translateY(0);
+    }
+    @keyframes floatPaper {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(0.4deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+    /* Subtle central parchment fold crease */
+    .paper-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: linear-gradient(180deg, transparent, rgba(160, 110, 50, 0.12) 15%, rgba(160, 110, 50, 0.18) 50%, rgba(160, 110, 50, 0.12) 85%, transparent);
+      pointer-events: none;
+      transform: translateX(-50%);
+    }
+    .parchment-seal-stamp {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #a42c4e, #6f1d3a);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(111, 29, 58, 0.45), 0 0 0 3px rgba(212, 175, 55, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+    .modal-close-icon {
+      position: absolute;
+      top: 1.25rem;
+      left: 1.5rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      display: grid;
+      place-items: center;
+      color: #6f1d3a;
+      cursor: pointer;
+      border: 1px solid rgba(111, 29, 58, 0.2);
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+    .modal-close-icon:hover {
+      background: #6f1d3a;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    /* Luxury Necklace Gift Popup Modal */
+    #necklace-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      background: rgba(14, 4, 9, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      opacity: 0;
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #necklace-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+    .necklace-container {
+      position: relative;
+      max-width: 520px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 28px;
+      padding: 2.25rem 2rem;
+      background: linear-gradient(165deg, #ffffff 0%, #fff7fa 50%, #fdeff4 100%);
+      border: 2px solid #e3ba7b;
+      box-shadow: 
+        0 35px 85px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(255, 255, 255, 0.9) inset,
+        0 0 55px rgba(217, 93, 124, 0.4);
+      transform: scale(0.9) translateY(24px);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      text-align: center;
+    }
+    #necklace-modal.active .necklace-container {
+      transform: scale(1) translateY(0);
+    }
+    .necklace-frame {
+      position: relative;
+      margin: 1.25rem auto;
+      max-width: 320px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 3px solid #d4af37;
+      box-shadow: 0 16px 36px rgba(111, 29, 58, 0.25), 0 0 30px rgba(212, 175, 55, 0.4);
+    }
+    .necklace-frame img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .necklace-frame:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Viral 'Accept Gift' Question Section */
+    .question-zone {
+      position: relative;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    #no-button, #no-feedback-btn {
+      transition: left 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), top 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.2s ease;
+      position: relative;
+    }
+    #yes-button, #yes-feedback-btn {
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    }
+
+    /* 3D Mystery Gift Cards */
+    .gift-card {
+      min-height: 350px;
+      cursor: pointer;
+      perspective: 1200px;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      text-align: left;
+    }
+    .gift-inner {
+      position: relative;
+      height: 350px;
+      transform-style: preserve-3d;
+      transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+      border-radius: 24px;
+    }
+    .gift-card.open .gift-inner {
+      transform: rotateY(180deg);
+    }
+    .gift-face {
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      backface-visibility: hidden;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(111, 29, 58, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.85) inset;
+    }
+    .gift-back {
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.75rem 1.5rem;
+      background: linear-gradient(135deg, #fff7f9 0%, #fbe7ee 100%);
+      border: 2px dashed rgba(217, 93, 124, 0.4);
+    }
+
+    /* Floating Genie Orb */
+    .genie-orb {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 35% 28%, #ffffff, #f78da7 35%, #7a1e43 78%);
+      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.6), 0 0 40px rgba(217, 93, 124, 0.6);
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(4deg); }
+    }
+
+    /* Equalizer */
+    .eq-bar {
+      width: 3px;
+      background: #6f1d3a;
+      border-radius: 2px;
+      animation: eq 1s ease-in-out infinite alternate;
+    }
+    .eq-bar:nth-child(1) { height: 8px; animation-delay: 0.1s; }
+    .eq-bar:nth-child(2) { height: 16px; animation-delay: 0.3s; }
+    .eq-bar:nth-child(3) { height: 12px; animation-delay: 0.5s; }
+    .eq-bar:nth-child(4) { height: 18px; animation-delay: 0.2s; }
+    @keyframes eq {
+      0% { height: 4px; }
+      100% { height: 18px; }
+    }
+    .audio-muted .eq-bar { animation: none; height: 3px; }
+
+    /* Pulse effects */
+    .pulse-romantic {
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); box-shadow: 0 8px 24px rgba(217, 93, 124, 0.35); }
+      50% { transform: scale(1.04); box-shadow: 0 12px 36px rgba(217, 93, 124, 0.6); }
+    }
+
+    .mystery-box-front { background: linear-gradient(145deg, #fff8eb, #f5d39d); border: 2px solid rgba(201, 151, 82, 0.55); }
+    .mystery-box-ribbon { position: absolute; top: 0; bottom: 0; left: 50%; width: 34px; transform: translateX(-50%); background: rgba(164, 44, 78, 0.82); }
+    .mystery-box-ribbon::after { content: ""; position: absolute; top: 50%; left: 50%; width: 64px; height: 64px; transform: translate(-50%, -50%); border: 12px solid #d95d7c; border-radius: 50%; box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3); }
+    .gift-reveal-content img { max-height: 150px; }
+    .feelings-page-panel { position: relative; overflow: hidden; }
+    .feelings-page-panel::before { content: "♡"; position: absolute; top: -1.8rem; right: 1.5rem; color: rgba(217, 93, 124, 0.14); font-family: Georgia, serif; font-size: 11rem; line-height: 1; pointer-events: none; }
+    .feelings-answer { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .feelings-answer:hover, .feelings-answer:focus-visible { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(111, 29, 58, 0.15); outline: none; }
+  </style>
+ </head>
+ <body>
+  <div class="romantic-shell">
+   <audio id="birthday-song-audio" src="assets/happy-birthday.mp3" preload="auto"></audio>
+   <!-- Floral Parallax Background -->
+   <div class="flower-backdrop"></div>
+
+   <!-- Fullscreen Animated Falling Hearts Background (Continuously falling top to bottom across all pages) -->
+   <canvas id="falling-hearts-canvas" class="fixed inset-0 pointer-events-none z-[1]" aria-hidden="true"></canvas>
+
+   <!-- Fullscreen BOOOOM Flash Overlay -->
+   <div id="boom-overlay"></div>
+
+   <!-- Ambient Falling Petals -->
+   <span class="petal"></span>
+   <span class="petal"></span>
+   <span class="petal"></span>
+   <span class="petal"></span>
+   <span class="petal"></span>
+   <span class="petal"></span>
+
+   <!-- Ambient Floating Hearts & Sparkles -->
+   <span class="floating-heart">💖</span>
+   <span class="floating-heart">🌸</span>
+   <span class="floating-heart">✨</span>
+   <span class="floating-heart">💕</span>
+
+   <!-- Flower Wipe Page Transition Effect -->
+   <div id="flower-wipe" class="flower-wipe" aria-hidden="true">
+    <div class="bloom"></div>
+   </div>
+
+   <!-- Floating Music Controller (Top Right) -->
+   <header class="fixed top-4 right-4 z-40 flex items-center gap-2">
+    <button id="music-toggle" class="flex items-center gap-2.5 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-[#6f1d3a] shadow-lg backdrop-blur-md transition-all hover:bg-white hover:shadow-xl" title="Toggle Romantic Music">
+     <span class="flex items-end gap-[2px] h-4" id="eq-container">
+      <span class="eq-bar"></span>
+      <span class="eq-bar"></span>
+      <span class="eq-bar"></span>
+      <span class="eq-bar"></span>
+     </span>
+     <span id="music-label">Birthday Melody: OFF</span>
+     <i data-lucide="music" class="w-3.5 h-3.5"></i>
+    </button>
+   </header>
+
+   <main class="w-full">
+    <!-- PAGE 1: THE GRAND COUNTDOWN TO 1/1/2027 -->
+    <section id="countdown-page" class="page active">
+     <div class="panel w-full max-w-3xl rounded-[2.5rem] border border-white/90 bg-white/80 px-6 py-10 text-center sm:px-12 sm:py-14 relative">
+      
+      <!-- Localhost Dev Badge -->
+      <div id="localhost-tag" class="hidden absolute top-4 left-4 bg-amber-100 border border-amber-300 text-amber-900 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-sm">
+       <span>🛠️ Localhost Mode</span>
+      </div>
+
+      <!-- Romantic Floral Header Badge -->
+      <div class="inline-flex items-center gap-2 rounded-full bg-[#fde8ee] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#a42c4e] mb-5 border border-[#ffd1dd]">
+       <i data-lucide="flower-2" class="w-3.5 h-3.5 text-[#d95d7c]"></i>
+       Counting Down to January 1, 2027 🌸
+      </div>
+      
+      <h1 class="display-font text-3xl font-bold tracking-tight text-[#6f1d3a] sm:text-5xl mb-4">
+       Happy Birthday Omnia! ✨
+      </h1>
+      
+      <p class="mx-auto max-w-xl text-base text-[#704b59] sm:text-lg leading-relaxed mb-8">
+       Every second brings us closer to celebrating the most beautiful, wonderful, and extraordinary person in our world. Your magical journey awaits!
+      </p>
+
+      <!-- Countdown Cards Grid -->
+      <div id="countdown-grid" class="flex flex-wrap justify-center gap-3 sm:gap-4" aria-label="Countdown">
+       <div class="flex flex-col items-center justify-center min-w-[72px] sm:min-w-[90px] rounded-2xl border border-[#ffd1dd] bg-white/90 p-3 sm:p-4 shadow-sm">
+        <span id="months" class="display-font text-3xl sm:text-4xl font-bold text-[#6f1d3a]">00</span>
+        <span class="text-[11px] font-semibold uppercase tracking-wider text-[#a13252] mt-1">Months</span>
+       </div>
+       <div class="flex flex-col items-center justify-center min-w-[72px] sm:min-w-[90px] rounded-2xl border border-[#ffd1dd] bg-white/90 p-3 sm:p-4 shadow-sm">
+        <span id="days" class="display-font text-3xl sm:text-4xl font-bold text-[#6f1d3a]">00</span>
+        <span class="text-[11px] font-semibold uppercase tracking-wider text-[#a13252] mt-1">Days</span>
+       </div>
+       <div class="flex flex-col items-center justify-center min-w-[72px] sm:min-w-[90px] rounded-2xl border border-[#ffd1dd] bg-white/90 p-3 sm:p-4 shadow-sm">
+        <span id="hours" class="display-font text-3xl sm:text-4xl font-bold text-[#6f1d3a]">00</span>
+        <span class="text-[11px] font-semibold uppercase tracking-wider text-[#a13252] mt-1">Hours</span>
+       </div>
+       <div class="flex flex-col items-center justify-center min-w-[72px] sm:min-w-[90px] rounded-2xl border border-[#ffd1dd] bg-white/90 p-3 sm:p-4 shadow-sm">
+        <span id="minutes" class="display-font text-3xl sm:text-4xl font-bold text-[#6f1d3a]">00</span>
+        <span class="text-[11px] font-semibold uppercase tracking-wider text-[#a13252] mt-1">Mins</span>
+       </div>
+       <div class="flex flex-col items-center justify-center min-w-[72px] sm:min-w-[90px] rounded-2xl border border-[#ffd1dd] bg-white/90 p-3 sm:p-4 shadow-sm">
+        <span id="seconds" class="display-font text-3xl sm:text-4xl font-bold text-[#6f1d3a]">00</span>
+        <span class="text-[11px] font-semibold uppercase tracking-wider text-[#a13252] mt-1">Secs</span>
+       </div>
+      </div>
+
+      <div id="countdown-status" class="mt-7 text-sm sm:text-base font-medium text-[#a13252] min-h-[1.5rem]">
+       ⏳ The vault is sealed until January 1, 2027...
+      </div>
+
+      <!-- Action Button (HIDDEN until date hits OR running on localhost) -->
+      <div class="mt-8 flex flex-col items-center justify-center gap-3">
+       <button id="begin-button" type="button" class="btn-primary pulse-romantic rounded-full px-9 py-4 text-base sm:text-lg font-bold flex items-center gap-2.5 shadow-2xl transition-all hidden">
+        <span>Begin Birthday Surprise 🎁</span>
+        <i data-lucide="sparkles" class="w-5 h-5"></i>
+       </button>
+
+       <!-- Localhost Only Simulator Trigger -->
+       <button id="localhost-sim-button" type="button" class="hidden text-xs font-semibold bg-amber-500/15 text-amber-900 border border-amber-400/40 rounded-full px-5 py-2 hover:bg-amber-500/25 transition-all flex items-center gap-1.5 shadow-sm">
+        <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-600"></i>
+        <span>Localhost Test: Trigger Birthday BOOOOM! 💥</span>
+       </button>
+      </div>
+     </div>
+    </section>
+
+    <!-- NEW PAGE 2: DETECTIVE "ARE YOU OMNIA?" INVESTIGATION STAGE 🕵️‍♀️🔍 -->
+    <section id="detective-page" class="page">
+     <div class="panel dossier-card w-full max-w-xl rounded-[2.5rem] p-7 sm:p-10 text-center relative overflow-hidden">
+      
+      <!-- Top Secret Dossier Header -->
+      <div class="flex items-center justify-between border-b-2 border-[#b8860b]/40 pb-3 mb-5 detective-font text-xs text-[#704b59]">
+       <span class="font-bold tracking-widest text-[#8c2449]">TOP SECRET // EYES ONLY</span>
+       <span>CASE #01-01-2027</span>
+      </div>
+
+      <div class="inline-flex items-center gap-2 rounded-full bg-[#fde8ee] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#a42c4e] mb-2 border border-[#ffd1dd]">
+       <i data-lucide="search" class="w-3.5 h-3.5 text-[#d95d7c]"></i>
+       Biometric Security Clearance
+      </div>
+
+      <h2 class="display-font text-2xl sm:text-4xl font-extrabold tracking-tight text-[#6f1d3a] mb-2">
+       Wait a Second... Are You Omnia? 🕵️‍♀️🔍
+      </h2>
+      
+      <p class="text-xs sm:text-sm text-[#704b59] mb-6">
+       Before top-secret birthday files are unsealed, Detective Kitty must verify your identity!
+      </p>
+
+      <!-- Detective Cat Mascot with Scanner -->
+      <div class="relative mx-auto my-3 w-48 h-48 sm:w-56 sm:h-56 rounded-3xl overflow-hidden border-2 border-[#c99752] shadow-lg">
+       <img src="assets/774508940_18082284563382760_7781603136018865184_n.jpg" alt="Detective Kitty" class="w-full h-full object-cover">
+       <div class="scanner-beam" id="scanner-beam"></div>
+      </div>
+
+      <!-- Live Scan Readout Output -->
+      <div id="detective-scan-box" class="my-4 bg-white/80 rounded-2xl p-4 border border-[#edd5a8] text-left detective-font text-xs space-y-1.5 text-[#543343]">
+       <p class="flex items-center gap-2">
+        <i data-lucide="scan-face" class="w-4 h-4 text-[#c99752]"></i>
+        <span>Subject: Unknown Visitor</span>
+       </p>
+       <p id="scan-step-1" class="hidden text-[#a42c4e]">🔍 Scanning beauty levels... [OFF THE CHARTS! 🚨]</p>
+       <p id="scan-step-2" class="hidden text-[#a42c4e]">💖 Analyzing heart of gold... [MATCH 100% PURE]</p>
+       <p id="scan-step-3" class="hidden text-[#a42c4e]">😼 Criminal record check... [GUILTY OF STEALING HEARTS!]</p>
+      </div>
+
+      <!-- Stamped Verification Badge (Appears when confirmed) -->
+      <div id="stamp-badge" class="stamp-badge my-3 border-4 border-red-600 text-red-600 px-6 py-2 rounded-xl text-lg sm:text-2xl font-black uppercase tracking-widest shadow-xl bg-white/95">
+      ★ 100% VERIFIED OMNIA ★
+      </div>
+
+      <!-- Action Button to scan -->
+      <div class="mt-6 flex flex-col items-center justify-center gap-3">
+       <button id="scan-identity-btn" type="button" class="btn-gold pulse-romantic rounded-full px-8 py-3.5 font-bold text-sm sm:text-base flex items-center gap-2 shadow-xl">
+        <i data-lucide="fingerprint" class="w-5 h-5"></i>
+        <span>Scan My Fingerprint / Verify Identity 🔍</span>
+       </button>
+       
+       <button id="proceed-to-lock-btn" type="button" class="btn-primary hidden rounded-full px-8 py-3.5 font-bold text-sm sm:text-base flex items-center gap-2 shadow-xl">
+        <span>Proceed to Memory Vault 🔑</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+       </button>
+      </div>
+
+     </div>
+    </section>
+
+    <!-- PAGE 3: SECRET MEMORY LOCK (Passcode: 07072026) -->
+    <section id="lock-page" class="page">
+     <div class="panel w-full max-w-md rounded-[2.5rem] border border-white/90 bg-white/80 px-6 py-8 text-center sm:px-9">
+      <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#fde8ee] text-[#6f1d3a] shadow-inner">
+       <i data-lucide="key-round" class="w-7 h-7"></i>
+      </div>
+
+      <p class="text-xs font-bold uppercase tracking-[.25em] text-[#a42c4e] mb-1">Secret Access</p>
+      <h2 class="display-font text-2xl font-bold text-[#6f1d3a] sm:text-3xl mb-2">Memory Vault Lock</h2>
+      <p class="text-xs sm:text-sm text-[#704b59] mb-5">
+       Enter our special date code to unlock:
+      </p>
+
+      <!-- Visual PIN Display Dots -->
+      <div class="mb-5 flex justify-center items-center gap-2.5">
+       <div class="pin-dot w-4 h-4 rounded-full border-2 border-[#d95d7c] transition-all bg-white" data-index="0"></div>
+       <div class="pin-dot w-4 h-4 rounded-full border-2 border-[#d95d7c] transition-all bg-white" data-index="1"></div>
+       <div class="pin-dot w-4 h-4 rounded-full border-2 border-[#d95d7c] transition-all bg-white" data-index="2"></div>
+       <div class="pin-dot w-4 h-4 rounded-full border-2 border-[#d95d7c] transition-all bg-white" data-index="3"></div>
+       <div class="pin-dot w-4 h-4 rounded-full border-2 border-[#d95d7c] transition-all bg-white" data-index="4"></div>
+       <div class="pin-dot w-4 h-4 rounded-full border-2 border-[#d95d7c] transition-all bg-white" data-index="5"></div>
+       <div class="pin-dot w-4 h-4 rounded-full border-2 border-[#d95d7c] transition-all bg-white" data-index="6"></div>
+       <div class="pin-dot w-4 h-4 rounded-full border-2 border-[#d95d7c] transition-all bg-white" data-index="7"></div>
+      </div>
+
+      <form id="passcode-form" novalidate>
+       <!-- Date Selectors Option -->
+       <div class="mb-4">
+        <label class="block text-left text-xs font-bold text-[#704b59] uppercase tracking-wider mb-2">Or Select Date Directly:</label>
+        <div class="grid grid-cols-3 gap-2">
+         <select id="pass-day" class="rounded-xl border border-[#dfb4c1] bg-white px-2 py-2.5 text-sm font-semibold text-[#6f1d3a] outline-none focus:ring-2 focus:ring-[#d95d7c]"></select>
+         <select id="pass-month" class="rounded-xl border border-[#dfb4c1] bg-white px-2 py-2.5 text-sm font-semibold text-[#6f1d3a] outline-none focus:ring-2 focus:ring-[#d95d7c]"></select>
+         <select id="pass-year" class="rounded-xl border border-[#dfb4c1] bg-white px-2 py-2.5 text-sm font-semibold text-[#6f1d3a] outline-none focus:ring-2 focus:ring-[#d95d7c]"></select>
+        </div>
+       </div>
+
+       <!-- Numeric Keypad -->
+       <div class="grid grid-cols-3 gap-2.5 my-4" aria-label="Passcode keypad">
+        <button class="key-btn h-12 rounded-2xl bg-[#f8d9e2] text-lg font-bold text-[#6f1d3a] shadow-sm hover:bg-[#f4c2d0]" type="button" data-key="1">1</button>
+        <button class="key-btn h-12 rounded-2xl bg-[#f8d9e2] text-lg font-bold text-[#6f1d3a] shadow-sm hover:bg-[#f4c2d0]" type="button" data-key="2">2</button>
+        <button class="key-btn h-12 rounded-2xl bg-[#f8d9e2] text-lg font-bold text-[#6f1d3a] shadow-sm hover:bg-[#f4c2d0]" type="button" data-key="3">3</button>
+        <button class="key-btn h-12 rounded-2xl bg-[#f8d9e2] text-lg font-bold text-[#6f1d3a] shadow-sm hover:bg-[#f4c2d0]" type="button" data-key="4">4</button>
+        <button class="key-btn h-12 rounded-2xl bg-[#f8d9e2] text-lg font-bold text-[#6f1d3a] shadow-sm hover:bg-[#f4c2d0]" type="button" data-key="5">5</button>
+        <button class="key-btn h-12 rounded-2xl bg-[#f8d9e2] text-lg font-bold text-[#6f1d3a] shadow-sm hover:bg-[#f4c2d0]" type="button" data-key="6">6</button>
+        <button class="key-btn h-12 rounded-2xl bg-[#f8d9e2] text-lg font-bold text-[#6f1d3a] shadow-sm hover:bg-[#f4c2d0]" type="button" data-key="7">7</button>
+        <button class="key-btn h-12 rounded-2xl bg-[#f8d9e2] text-lg font-bold text-[#6f1d3a] shadow-sm hover:bg-[#f4c2d0]" type="button" data-key="8">8</button>
+        <button class="key-btn h-12 rounded-2xl bg-[#f8d9e2] text-lg font-bold text-[#6f1d3a] shadow-sm hover:bg-[#f4c2d0]" type="button" data-key="9">9</button>
+        <button id="clear-key" class="key-btn h-12 rounded-2xl bg-[#f1cad5] text-xs font-bold text-[#6f1d3a] shadow-sm hover:bg-[#ebbeca]" type="button">CLEAR</button>
+        <button class="key-btn h-12 rounded-2xl bg-[#f8d9e2] text-lg font-bold text-[#6f1d3a] shadow-sm hover:bg-[#f4c2d0]" type="button" data-key="0">0</button>
+        <button id="backspace-key" class="key-btn h-12 rounded-2xl bg-[#f1cad5] text-xs font-bold text-[#6f1d3a] shadow-sm hover:bg-[#ebbeca] flex items-center justify-center" type="button">
+         <i data-lucide="delete" class="w-5 h-5"></i>
+        </button>
+       </div>
+
+       <div class="flex items-center justify-between mt-2">
+        <button id="hint-button" type="button" class="text-xs font-semibold text-[#d95d7c] underline underline-offset-4 hover:text-[#6f1d3a]">
+         Need a Hint? 💡
+        </button>
+        <button id="bypass-button" type="button" class="text-xs font-semibold text-[#a13252] hover:underline">
+         Plead for Mercy 🥺 (Bypass)
+        </button>
+       </div>
+
+       <!-- PURE ROMANTIC HINT WITHOUT SPOILER -->
+       <p id="hint-copy" class="hidden mt-2 text-xs italic text-[#704b59] bg-[#fff0f4] p-2.5 rounded-xl border border-[#ffd3df]">
+        Hint: The first message... the day I got lucky to know you: 7 / 7 / 2026. 💌✨
+       </p>
+
+       <button class="btn-primary mt-5 w-full rounded-full py-3.5 text-base font-bold flex items-center justify-center gap-2" type="submit">
+        <i data-lucide="unlock" class="w-4 h-4"></i>
+        <span>Unlock The Surprise</span>
+       </button>
+       
+       <p id="pass-status" class="mt-3 text-xs sm:text-sm font-semibold text-[#a13252] min-h-[1.5rem]" aria-live="polite"></p>
+      </form>
+     </div>
+    </section>
+
+    <!-- PAGE 4: FIRST LETTER -->
+    <section id="letter-page" class="page">
+     <div class="w-full max-w-2xl text-center">
+      <div class="inline-flex items-center gap-2 rounded-full bg-[#fde8ee] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#a42c4e] mb-3">
+       <i data-lucide="heart" class="w-3.5 h-3.5 fill-current text-[#d95d7c]"></i>
+       Special Delivery For Omnia
+      </div>
+
+      <!-- 3D Envelope Box -->
+      <div class="envelope-scene mb-8">
+       <div id="first-envelope" class="envelope-box" role="button" aria-label="Open your birthday letter">
+        <div class="envelope-wrapper">
+         <div class="envelope-flap"></div>
+         <div class="envelope-seal">
+          <i data-lucide="heart" class="w-7 h-7 fill-current"></i>
+         </div>
+        </div>
+       </div>
+      </div>
+
+      <button id="open-letter-modal-btn" type="button" class="btn-primary rounded-full px-9 py-4 font-bold inline-flex items-center gap-2 text-base shadow-xl">
+       <i data-lucide="mail-open" class="w-5 h-5"></i>
+      <span>Open Letter ✨</span>
+      </button>
+     </div>
+    </section>
+
+    <!-- FLOATING CENTER AGED PARCHMENT MODAL (Everything darkens in background!) -->
+    <div id="parchment-modal" class="paper-modal" role="dialog" aria-modal="true" aria-label="Birthday letter for Omnia">
+     <div class="paper-container relative">
+      <!-- Close button -->
+      <button id="close-parchment-x" class="modal-close-icon" type="button" title="Close letter">
+       <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Vintage Wax Seal Stamp -->
+      <div class="parchment-seal-stamp">
+       <i data-lucide="heart" class="w-6 h-6 fill-current"></i>
+      </div>
+
+      <div class="border-b border-[#c99752]/40 pb-4 mb-5">
+      <span class="text-[11px] font-bold uppercase tracking-[.25em] text-[#8c2449]">A Note For Omnia</span>
+      <h3 class="display-font text-3xl sm:text-4xl font-bold text-[#541e2e] mt-1">My Dear Omnia,</h3>
+      </div>
+
+      <div id="letter-copy" class="hand-font text-2xl sm:text-3xl leading-relaxed sm:leading-loose text-[#381d13] space-y-4">
+       <p>To my dear Omnia,</p>
+       <p>I'm really glad I got to know you. Your presence has become one of the things I genuinely value, and your happiness matters to me more than you probably realize.</p>
+       <p>I hope your birthday feels as bright and special as you are. You deserve good things, gentle days, and people who make you feel appreciated.</p>
+       <div class="text-right pt-3">
+        <p class="text-base sm:text-lg italic text-[#6f1d3a] font-sans font-semibold mb-1">With warmth,</p>
+        <p class="display-font text-3xl sm:text-4xl font-extrabold text-[#7a1231] tracking-wide mt-1">Adham 💖</p>
+       </div>
+      </div>
+
+      <div class="mt-8 pt-5 border-t border-[#c99752]/40 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <span id="letter-footer" class="text-xs italic text-[#704b59]">A small truth, written gently 📜</span>
+       <button id="close-parchment-btn" type="button" class="btn-primary rounded-full px-8 py-3 font-bold text-sm sm:text-base flex items-center gap-2">
+        <span>Continue To The Gifts 💌</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+       </button>
+      </div>
+     </div>
+    </div>
+
+    <!-- PAGE 5: THE VIRAL "PLS ACCEPT THE GIFT" SECTION -->
+    <section id="question-page" class="page">
+     <div class="panel w-full max-w-xl rounded-[2.5rem] border border-white/90 bg-white/85 px-6 py-9 text-center sm:px-10">
+      
+      <!-- Big viral title -->
+      <h2 id="viral-title" class="display-font text-2xl sm:text-4xl font-extrabold tracking-tight text-[#6f1d3a] uppercase mb-4">
+       PLS ACCEPT THE GIFT 🎁
+      </h2>
+
+      <!-- Cute Reaction Cat Container -->
+      <div class="mx-auto my-3 flex flex-col items-center justify-center">
+       <div class="relative flex items-center justify-center w-52 h-52 sm:w-60 sm:h-60 rounded-3xl bg-gradient-to-b from-[#fff2f5] to-[#fde8ee] p-3 shadow-inner border border-[#ffd3df]">
+        <img id="cat-reaction-img" src="assets/cat_stage0_clean.png" alt="Cute kitten with flowers" class="cat-avatar max-h-full max-w-full object-contain filter drop-shadow-md">
+       </div>
+       <p id="cat-subtitle" class="mt-3 text-sm sm:text-base font-semibold text-[#a42c4e] transition-all min-h-[1.5rem]">
+        Look how politely the kitty is offering you flowers! 🌸🥺
+       </p>
+      </div>
+
+      <!-- Question interactive buttons area -->
+      <div id="question-zone" class="question-zone mt-6">
+       <!-- YES Button -->
+       <button id="yes-button" type="button" class="btn-primary rounded-full px-8 py-3.5 text-base sm:text-lg font-bold shadow-lg flex items-center gap-2">
+        <i data-lucide="heart" class="w-5 h-5 fill-current"></i>
+        <span>YES, I ACCEPT! 💖</span>
+       </button>
+
+       <!-- NO Button (runs away and dodges!) -->
+       <button id="no-button" type="button" class="rounded-full border-2 border-[#d95d7c]/40 bg-white px-7 py-3 text-sm sm:text-base font-semibold text-[#a13252] shadow-sm hover:border-[#d95d7c]">
+        No... 🙅‍♀️
+       </button>
+      </div>
+
+      <!-- Funny Status Text -->
+      <p id="question-status" class="mt-4 text-xs sm:text-sm font-medium text-[#704b59] min-h-[1.5rem]" aria-live="polite">
+       (Warning: Clicking 'No' may cause uncontrollable cute drama!)
+      </p>
+     </div>
+    </section>
+
+    <!-- PAGE 6: MAGICAL MYSTERY GIFTS (With Happy Birthday Song & Real Necklace & Funny Memes) -->
+    <section id="gifts-page" class="page">
+     <div class="w-full max-w-5xl text-center">
+      
+      <!-- PROMINENT HAPPY BIRTHDAY SONG BANNER AT TOP OF GIFTS PAGE -->
+      <div class="mx-auto mb-6 flex justify-center">
+       <button id="birthday-song-banner" type="button" class="btn-gold pulse-romantic rounded-full px-7 py-3.5 text-sm sm:text-base font-bold shadow-lg flex items-center gap-2.5">
+        <i data-lucide="music-2" class="w-5 h-5"></i>
+        <span id="hbd-song-text">Play "Happy Birthday Omnia" Song 🎂🎶</span>
+       </button>
+      </div>
+
+      <!-- Magical Genie Orb Mascot -->
+      <div class="mx-auto mb-5 flex max-w-xl flex-col items-center">
+       <div class="genie-orb">
+        <i data-lucide="sparkles" class="w-11 h-11 text-white"></i>
+       </div>
+       <h3 class="display-font text-2xl font-bold text-[#6f1d3a] mt-3">The Birthday Vault ✨</h3>
+       <p id="genie-speech" class="text-sm sm:text-base text-[#704b59] mt-1 font-medium">
+        "My Omnia, three mystery boxes are waiting. Open any box to discover what comes next:"
+       </p>
+      </div>
+
+      <div class="flex items-center justify-center gap-2 mb-6">
+       <span class="text-xs font-bold uppercase tracking-wider text-[#a42c4e] bg-[#fde8ee] px-3.5 py-1 rounded-full border border-[#ffd3df]" id="gifts-counter">
+        Gifts Unwrapped: 0 / 3 🎁
+       </span>
+      </div>
+
+      <!-- 3D Mystery Gift Grid -->
+      <div id="gift-grid" class="grid gap-6 sm:grid-cols-3">
+       
+       <!-- GIFT 1: THE NECKLACE (The necklace bought for her!) -->
+       <div class="gift-card" data-card="1" role="button" aria-pressed="false" tabindex="0">
+        <div class="gift-inner">
+         <div class="gift-face bg-white flex flex-col items-center justify-between p-6 text-center">
+          <div class="w-14 h-14 rounded-2xl bg-[#fff0f4] flex items-center justify-center text-[#d95d7c] shadow-sm">
+           <i data-lucide="gem" class="w-7 h-7"></i>
+          </div>
+          <div class="my-2">
+           <span class="text-[11px] font-bold uppercase tracking-wider text-[#c99752]">Special Gift #1</span>
+           <h4 class="display-font text-xl font-bold text-[#6f1d3a] mt-1">The Sparkling Necklace</h4>
+           <p class="text-xs text-[#704b59] mt-1">Bought with all my heart for you</p>
+          </div>
+          <div class="w-full overflow-hidden rounded-xl border border-[#ffd3df] shadow-sm max-h-32">
+           <img src="assets/necklace.PNG" alt="Necklace" class="w-full h-full object-cover">
+          </div>
+          <span class="mt-2 text-xs font-bold text-[#d95d7c]">Click to Unbox ↻</span>
+         </div>
+         
+         <div class="gift-face gift-back text-center">
+          <i data-lucide="sparkles" class="w-10 h-10 text-[#c99752] mb-2"></i>
+          <h4 class="display-font text-lg font-bold text-[#6f1d3a] mb-1">Your Birthday Necklace 💎</h4>
+          <p class="hand-font text-xl text-[#543343] leading-relaxed">
+           "I chose this sparkling necklace for you so you can wear it close to your heart. Just like each gem, you bring elegance, warmth, and brilliance everywhere you go. Happy Birthday, my shining star!"
+          </p>
+          <span class="mt-3 inline-block text-[11px] font-bold tracking-widest text-[#a42c4e] uppercase bg-white/85 px-3 py-1 rounded-full border border-[#f3cad5]">
+           ✨ Handcrafted For Omnia
+          </span>
+         </div>
+        </div>
+       </div>
+
+       <!-- GIFT 2: THE LIFETIME GOLDEN VIP PASS -->
+       <div class="gift-card" data-card="2" role="button" aria-pressed="false" tabindex="0">
+        <div class="gift-inner">
+         <div class="gift-face bg-white flex flex-col items-center justify-between p-6 text-center">
+          <div class="w-14 h-14 rounded-2xl bg-[#fff8eb] flex items-center justify-center text-[#c99752] shadow-sm">
+           <i data-lucide="ticket" class="w-7 h-7"></i>
+          </div>
+          <div class="my-2">
+           <span class="text-[11px] font-bold uppercase tracking-wider text-[#c99752]">Special Gift #2</span>
+           <h4 class="display-font text-xl font-bold text-[#6f1d3a] mt-1">The VIP Golden Pass</h4>
+           <p class="text-xs text-[#704b59] mt-1">Official Royal Privileges</p>
+          </div>
+          <div class="w-full overflow-hidden rounded-xl border border-[#ffd3df] shadow-sm max-h-32">
+           <img src="assets/gift_ticket.jpg" alt="VIP Pass Ticket" class="w-full h-full object-cover">
+          </div>
+          <span class="mt-2 text-xs font-bold text-[#d95d7c]">Click to Unbox ↻</span>
+         </div>
+         
+         <div class="gift-face gift-back text-center">
+          <i data-lucide="heart-handshake" class="w-10 h-10 text-[#d95d7c] mb-2"></i>
+          <h4 class="display-font text-lg font-bold text-[#6f1d3a] mb-1">Omnia's VIP Pass 🎟️</h4>
+          <p class="hand-font text-xl text-[#543343] leading-relaxed">
+           "Entitles my Omnia to: Unlimited warm hugs, zero arguments for an entire month, 24/7 listening ear, free favorite treats, and endless Omnia treatment!"
+          </p>
+          <span class="mt-3 inline-block text-[11px] font-bold tracking-widest text-[#a42c4e] uppercase bg-white/85 px-3 py-1 rounded-full border border-[#f3cad5]">
+           ✓ Non-Transferable & Lifetime
+          </span>
+         </div>
+        </div>
+       </div>
+
+       <!-- GIFT 3: THE HILARIOUS MEME GALLERY (Funny images as the 3rd gift) -->
+       <div class="gift-card" data-card="3" role="button" aria-pressed="false" tabindex="0">
+        <div class="gift-inner">
+         <div class="gift-face bg-white flex flex-col items-center justify-between p-6 text-center">
+          <div class="w-14 h-14 rounded-2xl bg-[#fff0f4] flex items-center justify-center text-[#d95d7c] shadow-sm">
+           <i data-lucide="smile" class="w-7 h-7"></i>
+          </div>
+          <div class="my-2">
+           <span class="text-[11px] font-bold uppercase tracking-wider text-[#c99752]">Special Gift #3</span>
+           <h4 class="display-font text-xl font-bold text-[#6f1d3a] mt-1">The Secret Meme Vault</h4>
+           <p class="text-xs text-[#704b59] mt-1">Guaranteed to make you laugh 😂</p>
+          </div>
+          <div class="w-full overflow-hidden rounded-xl border border-[#ffd3df] shadow-sm max-h-32">
+           <img src="assets/Codex Image Sep 18, 2026, 02_42_56 AM.png" alt="Codex image" class="w-full h-full object-cover">
+          </div>
+          <span class="mt-2 text-xs font-bold text-[#d95d7c]">Click to Unbox ↻</span>
+         </div>
+         
+         <div class="gift-face gift-back text-center p-4">
+          <div class="w-full flex items-center justify-between mb-1">
+           <span class="text-[11px] font-bold text-[#a42c4e] uppercase">Omnia Meme Hall of Fame</span>
+           <button id="next-meme-btn" type="button" class="text-xs bg-[#f8d9e2] text-[#6f1d3a] font-bold px-2.5 py-1 rounded-full hover:bg-[#f4c2d0]" title="Next Meme">Next ➡️</button>
+          </div>
+          <div class="w-full h-32 overflow-hidden rounded-xl border border-[#ffd3df] my-1">
+           <img id="meme-gallery-img" src="assets/cat_shocked.jpg" alt="Funny meme" class="w-full h-full object-contain bg-white">
+          </div>
+          <p id="meme-caption" class="text-xs font-bold text-[#6f1d3a] mt-1 leading-snug">
+           "Exhibit A: Omnia when someone says 'I brought snacks!' 🍕"
+          </p>
+          <span class="text-[10px] text-[#704b59] mt-1">Tap 'Next' for more funny exhibits!</span>
+         </div>
+        </div>
+       </div>
+
+      </div>
+
+      <!-- Button to proceed to the "Do You Like The Gifts?" page -->
+      <div class="mt-10">
+       <button id="to-feedback-button" type="button" class="btn-primary hidden pulse-romantic rounded-full px-9 py-4 text-lg font-bold inline-flex items-center gap-2">
+        <span>Proceed: Do You Like The Gifts? 🥺💖</span>
+        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+       </button>
+      </div>
+
+     </div>
+    </section>
+
+    <!-- PAGE 7: "DO YOU LIKE THE GIFTS?" INTERACTIVE QUESTION -->
+    <section id="feedback-page" class="page">
+     <div class="panel w-full max-w-xl rounded-[2.5rem] border border-white/90 bg-white/85 px-6 py-9 text-center sm:px-10">
+      
+      <div class="inline-flex items-center gap-2 rounded-full bg-[#fde8ee] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#a42c4e] mb-3 border border-[#ffd1dd]">
+       <i data-lucide="help-circle" class="w-3.5 h-3.5 text-[#d95d7c]"></i>
+       Crucial Feedback Check
+      </div>
+
+      <h2 class="display-font text-2xl sm:text-4xl font-extrabold tracking-tight text-[#6f1d3a] mb-2">
+       Do You Like Your Gifts? 🥺🎁
+      </h2>
+
+      <div class="mx-auto my-3 flex flex-col items-center justify-center">
+       <div class="relative flex items-center justify-center w-52 h-52 sm:w-60 sm:h-60 rounded-3xl bg-gradient-to-b from-[#fff2f5] to-[#fde8ee] p-3 shadow-inner border border-[#ffd3df]">
+        <img id="feedback-cat-img" src="assets/cat_pleading.jpg" alt="Pleading cute kitten" class="cat-avatar max-h-full max-w-full object-contain filter drop-shadow-md">
+       </div>
+       <p id="feedback-subtitle" class="mt-3 text-sm sm:text-base font-semibold text-[#a42c4e] min-h-[1.5rem]">
+        Be completely honest... did you love the surprises and your necklace? 🥺💖
+       </p>
+      </div>
+
+      <!-- Interactive Buttons -->
+      <div id="feedback-zone" class="question-zone mt-6">
+       <!-- YES Button -->
+       <button id="yes-feedback-btn" type="button" class="btn-primary rounded-full px-8 py-3.5 text-base sm:text-lg font-bold shadow-lg flex items-center gap-2">
+        <i data-lucide="heart" class="w-5 h-5 fill-current"></i>
+        <span>YES, I LOVE THEM SO MUCH! 🥰✨</span>
+       </button>
+
+       <!-- NO Button (Runaway dodge!) -->
+       <button id="no-feedback-btn" type="button" class="rounded-full border-2 border-[#d95d7c]/40 bg-white px-7 py-3 text-sm sm:text-base font-semibold text-[#a13252] shadow-sm hover:border-[#d95d7c]">
+        No, not really... 🙄
+       </button>
+      </div>
+
+      <!-- Funny Status Text -->
+      <p id="feedback-status" class="mt-4 text-xs sm:text-sm font-medium text-[#704b59] min-h-[1.5rem]" aria-live="polite">
+       (Warning: Selecting 'No' violates the Universal Birthday Treaty!)
+      </p>
+     </div>
+    </section>
+
+    <!-- PAGE 8: THE GRAND FINALE -->
+    <section id="final-page" class="page">
+     <div class="w-full max-w-2xl text-center">
+      <div class="inline-flex items-center gap-2 rounded-full bg-[#fde8ee] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#a42c4e] mb-3">
+       <i data-lucide="crown" class="w-4 h-4 text-[#c99752]"></i>
+       Birthday Royalty
+      </div>
+
+      <h2 class="display-font text-3xl sm:text-5xl font-bold text-[#6f1d3a] mb-3">
+       The Grand Birthday Blessing 🎂
+      </h2>
+      <p class="text-sm sm:text-base text-[#704b59] mb-7">
+       Tap to unseal Omnia's official birthday keepsake letter:
+      </p>
+
+      <!-- Final Envelope Box -->
+      <div class="envelope-scene mb-5">
+       <div id="final-envelope" class="envelope-box" role="button" aria-label="Open final keepsake letter">
+        <div class="envelope-wrapper">
+         <div class="envelope-flap"></div>
+         <div class="envelope-seal">
+          <i data-lucide="flower-2" class="w-7 h-7"></i>
+         </div>
+        </div>
+       </div>
+      </div>
+
+      <div class="mb-7">
+       <button id="open-final-letter-btn" type="button" class="btn-primary rounded-full px-9 py-4 font-bold inline-flex items-center gap-2.5 text-base shadow-2xl pulse-romantic">
+        <i data-lucide="mail-open" class="w-5 h-5"></i>
+        <span>Read Omnia's Keepsake Letter ✨</span>
+       </button>
+      </div>
+
+      <!-- Action Buttons in Finale -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+       <button id="confetti-boost" type="button" class="btn-gold rounded-full px-7 py-3.5 font-bold text-sm flex items-center gap-2 shadow-lg">
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+        <span>More Confetti! 🎉</span>
+       </button>
+       <button id="restart-journey" type="button" class="rounded-full border border-[#d95d7c] bg-white/90 px-7 py-3.5 text-sm font-bold text-[#6f1d3a] hover:bg-[#fff0f4] transition-all flex items-center gap-2 shadow-md">
+        <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+        <span>Experience Again 🔁</span>
+       </button>
+      </div>
+
+     </div>
+    </section>
+
+    <!-- NECKLACE GIFT POPUP MODAL (Darkened background, luxury jewelry showcase) -->
+    <!-- PAGE 9: A QUIET QUESTION -->
+    <section id="feelings-page" class="page">
+     <div class="panel feelings-page-panel w-full max-w-xl rounded-[2.5rem] border border-white/90 bg-white/85 px-6 py-10 text-center sm:px-10">
+      <div class="relative z-10">
+       <div class="inline-flex items-center gap-2 rounded-full bg-[#fde8ee] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#a42c4e] mb-4 border border-[#ffd1dd]">
+      <i data-lucide="heart" class="w-3.5 h-3.5 fill-current text-[#d95d7c]"></i>
+      One Last Thing
+       </div>
+           <h2 class="display-font text-3xl sm:text-5xl font-bold text-[#6f1d3a] mb-4">You Mean More Than You Know</h2>
+       <p class="mx-auto max-w-md text-sm sm:text-base leading-relaxed text-[#704b59] mb-6">
+      I don't really know how to say this without making it awkward, so I'll keep it simple: I'm really happy I know you, and you have become one of my favorite people.
+       </p>
+       <div id="feelings-answer-zone" class="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <button id="feelings-yes" type="button" class="feelings-answer btn-primary rounded-full px-7 py-3.5 text-sm sm:text-base font-bold flex items-center gap-2">
+       <i data-lucide="heart" class="w-4 h-4 fill-current"></i>
+       I Get It 💖
+      </button>
+      <button id="feelings-time" type="button" class="feelings-answer rounded-full border-2 border-[#d95d7c]/35 bg-white px-7 py-3 text-sm sm:text-base font-semibold text-[#a13252]">
+       Keep It Between Us 🌷
+      </button>
+       </div>
+       <p id="feelings-response" class="mt-6 min-h-[4.5rem] text-sm sm:text-base leading-relaxed font-medium text-[#8c2449]" aria-live="polite"></p>
+      </div>
+     </div>
+    </section>
+
+    <!-- NECKLACE GIFT POPUP MODAL (Darkened background, luxury jewelry showcase) -->
+    <div id="necklace-modal" role="dialog" aria-modal="true" aria-label="Omnia's Birthday Gift Reveal">
+     <div class="necklace-container relative">
+      <!-- Close button -->
+      <button id="close-necklace-x" class="modal-close-icon" type="button" title="Close modal">
+       <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="inline-flex items-center gap-2 rounded-full bg-[#fde8ee] px-4 py-1 text-xs font-bold uppercase tracking-widest text-[#a42c4e] mb-2 border border-[#ffd1dd]">
+       <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#d95d7c]"></i>
+      <span id="necklace-gift-label">Special Gift #1 // For My Omnia</span>
+      </div>
+
+      <h3 class="display-font text-2xl sm:text-3xl font-extrabold text-[#6f1d3a]">
+      <span id="necklace-gift-title">Your Birthday Necklace 💎✨</span>
+      </h3>
+      <p id="necklace-gift-subtitle" class="text-xs sm:text-sm text-[#704b59] mt-0.5">Handpicked with all my love, just for you</p>
+
+      <!-- High-res Necklace Photo in Glowing Luxury Frame -->
+      <div class="necklace-frame">
+      <img id="necklace-gift-image" src="assets/necklace.PNG" alt="Omnia's Birthday Necklace" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Beautiful Romantic Message directly underneath the image -->
+      <div class="my-3 px-1 sm:px-3">
+      <p id="necklace-gift-copy" class="hand-font text-2xl sm:text-3xl text-[#381d13] leading-relaxed">
+        "I chose this sparkling crescent necklace for you so you can always wear my love close to your heartbeat. Just like the moon illuminates the darkest sky, you bring radiant beauty, calm, and endless light into my entire world. Wear it proudly knowing you are my one and only."
+       </p>
+       <div class="mt-3 p-3 rounded-2xl bg-[#fff0f4] border border-[#ffd3df] inline-block">
+        <p class="text-xs sm:text-sm font-bold text-[#8c1d40]">
+         ✨ Chosen especially for you — Adham 💖
+        </p>
+       </div>
+      </div>
+
+      <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
+       <button id="wear-necklace-btn" type="button" class="btn-primary rounded-full px-9 py-3.5 font-bold text-sm sm:text-base flex items-center gap-2 shadow-xl">
+        <i data-lucide="heart" class="w-4 h-4 fill-current"></i>
+        <span>Wear It With Love 🥰💖</span>
+       </button>
+      </div>
+     </div>
+    </div>
+
+    <!-- FLOATING CENTER FINAL KEEPSAKE LETTER MODAL -->
+    <div id="final-letter-modal" class="paper-modal" role="dialog" aria-modal="true" aria-label="Final Keepsake letter for Omnia">
+     <div class="paper-container relative">
+      <!-- Close button -->
+      <button id="close-final-letter-x" class="modal-close-icon" type="button" title="Close letter">
+       <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Vintage Wax Seal Stamp -->
+      <div class="parchment-seal-stamp">
+       <i data-lucide="crown" class="w-6 h-6 text-amber-200 fill-current"></i>
+      </div>
+
+      <div class="border-b border-[#c99752]/40 pb-4 mb-5">
+      <span class="text-[11px] font-bold uppercase tracking-[.25em] text-[#8c2449]">Official Birthday Keepsake</span>
+      <h3 class="display-font text-3xl sm:text-4xl font-bold text-[#541e2e] mt-1">For Omnia,</h3>
+      </div>
+
+      <div class="hand-font text-2xl sm:text-3xl leading-relaxed sm:leading-loose text-[#381d13] space-y-4">
+       <p>
+        Happy Birthday, Omnia! 🌸🎂
+       </p>
+       <p>
+        Seeing you happy today is one of the sweetest parts of this celebration. You deserve every smile, every gentle moment, and every good thing that finds you.
+       </p>
+       <p>
+        When you wear your new necklace, I hope it reminds you how appreciated you are. I am grateful for the memories we have made, and I hope there are many more ordinary, happy days for us to share.
+       </p>
+       <p>
+        Thank you for being you: kind, bright, and completely yourself. You have become someone genuinely important to me, and I hope you always know how special you are.
+       </p>
+       <div class="text-right pt-3">
+        <p class="text-base sm:text-lg italic text-[#6f1d3a] font-sans font-semibold mb-1">With warmth and gratitude,</p>
+        <p class="display-font text-3xl sm:text-4xl font-extrabold text-[#7a1231] tracking-wide mt-1">Adham 💖</p>
+       </div>
+      </div>
+
+      <div class="mt-8 pt-5 border-t border-[#c99752]/40 flex flex-col sm:flex-row items-center justify-between gap-3">
+       <span class="text-xs italic text-[#704b59]">Sealed with an eternal birthday blessing 📜✨</span>
+       <button id="close-final-letter-btn" type="button" class="btn-primary rounded-full px-8 py-3 font-bold text-sm sm:text-base flex items-center gap-2">
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+        <span>One Last Little Truth 💖</span>
+       </button>
+      </div>
+     </div>
+    </div>
+   </main>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // DYNAMIC FALLING HEARTS BACKGROUND ENGINE (All Pages, Top to Bottom)
+      const heartsCanvas = document.getElementById("falling-hearts-canvas");
+      if (heartsCanvas) {
+        const hCtx = heartsCanvas.getContext("2d");
+        let heartsList = [];
+        const heartPalette = [
+          "rgba(217, 93, 124, 0.75)",  // Deep rose
+          "rgba(244, 63, 94, 0.70)",   // Rose crimson
+          "rgba(251, 113, 133, 0.68)", // Coral rose
+          "rgba(164, 44, 78, 0.60)",   // Deep wine
+          "rgba(255, 182, 193, 0.75)", // Light blush pink
+          "rgba(212, 175, 55, 0.65)",  // Warm gold sparkle
+          "rgba(249, 168, 212, 0.72)"  // Soft pink
+        ];
+
+        function resizeHeartsCanvas() {
+          heartsCanvas.width = window.innerWidth;
+          heartsCanvas.height = window.innerHeight;
+        }
+        window.addEventListener("resize", resizeHeartsCanvas);
+        resizeHeartsCanvas();
+
+        class ScreenHeart {
+          constructor(initY) {
+            this.reset(initY);
+          }
+          reset(initY) {
+            this.x = Math.random() * heartsCanvas.width;
+            this.y = initY !== undefined ? initY : -35 - Math.random() * 40;
+            this.size = 12 + Math.random() * 22; // 12px to 34px
+            this.speedY = 0.8 + Math.random() * 1.6; // gentle downward drift
+            this.swaySpeed = 0.015 + Math.random() * 0.02;
+            this.swayOffset = Math.random() * Math.PI * 2;
+            this.rotation = Math.random() * Math.PI * 2;
+            this.rotationSpeed = (Math.random() - 0.5) * 0.025;
+            this.color = heartPalette[Math.floor(Math.random() * heartPalette.length)];
+            this.scaleX = 1;
+            this.scaleSpeed = 0.02 + Math.random() * 0.02;
+            this.scaleOffset = Math.random() * Math.PI * 2;
+          }
+          update(t) {
+            this.y += this.speedY;
+            this.x += Math.sin(t * this.swaySpeed + this.swayOffset) * 0.85;
+            this.rotation += this.rotationSpeed;
+            this.scaleX = Math.sin(t * this.scaleSpeed + this.scaleOffset) * 0.28 + 0.72;
+
+            if (this.y > heartsCanvas.height + 40) {
+              this.reset(-30);
+            }
+          }
+          draw() {
+            hCtx.save();
+            hCtx.translate(this.x, this.y);
+            hCtx.rotate(this.rotation);
+            hCtx.scale(this.scaleX, 1);
+            hCtx.fillStyle = this.color;
+            hCtx.shadowColor = this.color;
+            hCtx.shadowBlur = 6;
+
+            const s = this.size / 16;
+            hCtx.beginPath();
+            hCtx.moveTo(0, -4 * s);
+            hCtx.bezierCurveTo(-7 * s, -14 * s, -16 * s, -4 * s, -16 * s, 4 * s);
+            hCtx.bezierCurveTo(-16 * s, 12 * s, -6 * s, 18 * s, 0, 24 * s);
+            hCtx.bezierCurveTo(6 * s, 18 * s, 16 * s, 12 * s, 16 * s, 4 * s);
+            hCtx.bezierCurveTo(16 * s, -4 * s, 7 * s, -14 * s, 0, -4 * s);
+            hCtx.closePath();
+            hCtx.fill();
+            hCtx.restore();
+          }
+        }
+
+        const count = Math.min(50, Math.max(24, Math.floor(window.innerWidth / 26)));
+        for (let i = 0; i < count; i++) {
+          heartsList.push(new ScreenHeart(Math.random() * heartsCanvas.height));
+        }
+
+        let heartAnimTick = 0;
+        function renderFallingHearts() {
+          hCtx.clearRect(0, 0, heartsCanvas.width, heartsCanvas.height);
+          heartAnimTick += 1;
+          for (let i = 0; i < heartsList.length; i++) {
+            heartsList[i].update(heartAnimTick);
+            heartsList[i].draw();
+          }
+          requestAnimationFrame(renderFallingHearts);
+        }
+        requestAnimationFrame(renderFallingHearts);
+      }
+
+      // Sound Synthesizer (Web Audio API)
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      let isMusicPlaying = false;
+      let musicInterval = null;
+
+      function playTone(freq, type = "sine", duration = 0.25, volume = 0.15) {
+        if (audioCtx.state === "suspended") audioCtx.resume();
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+          gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(volume, audioCtx.currentTime + 0.04);
+          gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + duration);
+        } catch (e) { /* ignore */ }
+      }
+
+      function playBoomSound() {
+        if (audioCtx.state === "suspended") audioCtx.resume();
+        try {
+          // Low rumble + boom chord
+          const osc1 = audioCtx.createOscillator();
+          const osc2 = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc1.type = "sawtooth";
+          osc2.type = "sine";
+          osc1.frequency.setValueAtTime(160, audioCtx.currentTime);
+          osc1.frequency.exponentialRampToValueAtTime(35, audioCtx.currentTime + 0.8);
+          osc2.frequency.setValueAtTime(90, audioCtx.currentTime);
+          osc2.frequency.exponentialRampToValueAtTime(25, audioCtx.currentTime + 0.9);
+          gain.gain.setValueAtTime(0.4, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.9);
+          osc1.connect(gain);
+          osc2.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc1.start(); osc2.start();
+          osc1.stop(audioCtx.currentTime + 0.9);
+          osc2.stop(audioCtx.currentTime + 0.9);
+        } catch (e) {}
+      }
+
+      function playBoingSound() {
+        if (audioCtx.state === "suspended") audioCtx.resume();
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(320, audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(740, audioCtx.currentTime + 0.18);
+          gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.22);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.22);
+        } catch (e) {}
+      }
+
+      function playChime() {
+        [523.25, 659.25, 783.99, 1046.50].forEach((freq, idx) => {
+          setTimeout(() => playTone(freq, "triangle", 0.45, 0.12), idx * 110);
+        });
+      }
+
+      function playCelebrationFanfare() {
+        const notes = [523.25, 523.25, 587.33, 659.25, 783.99, 1046.50];
+        notes.forEach((note, idx) => {
+          setTimeout(() => playTone(note, "sine", 0.35, 0.18), idx * 130);
+        });
+      }
+
+      let isSongPlaying = false;
+      function playHappyBirthdaySong() {
+        const songAudio = document.getElementById("birthday-song-audio");
+        if (!songAudio || isSongPlaying) return;
+        songAudio.currentTime = 0;
+        isSongPlaying = true;
+
+        const bannerText = document.getElementById("hbd-song-text");
+        bannerText.textContent = "🎶 Playing: Happy Birthday Omnia! 🎂";
+        songAudio.play().catch(() => {
+          isSongPlaying = false;
+          bannerText.textContent = "Play 'Happy Birthday' Song 🎂🎶";
+        });
+      }
+
+      document.getElementById("birthday-song-audio").addEventListener("ended", () => {
+        isSongPlaying = false;
+        document.getElementById("hbd-song-text").textContent = "Replay 'Happy Birthday' Song 🎂🎶";
+        confetti({ particleCount: 70, spread: 70, origin: { y: 0.5 } });
+      });
+
+      document.getElementById("birthday-song-banner").addEventListener("click", playHappyBirthdaySong);
+
+      // Background ambient melody
+      const melodyChords = [
+        [261.63, 329.63, 392.00, 523.25],
+        [220.00, 261.63, 329.63, 440.00],
+        [174.61, 220.00, 261.63, 349.23],
+        [196.00, 246.94, 293.66, 392.00]
+      ];
+      let chordStep = 0;
+      let noteStep = 0;
+
+      function startBackgroundMelody() {
+        if (isMusicPlaying) return;
+        if (audioCtx.state === "suspended") audioCtx.resume();
+        isMusicPlaying = true;
+        document.getElementById("music-label").textContent = "Birthday Melody: ON";
+        document.getElementById("music-toggle").classList.remove("audio-muted");
+
+        musicInterval = setInterval(() => {
+          const chord = melodyChords[chordStep];
+          const note = chord[noteStep];
+          playTone(note, "sine", 0.4, 0.08);
+          noteStep++;
+          if (noteStep >= chord.length) {
+            noteStep = 0;
+            chordStep = (chordStep + 1) % melodyChords.length;
+          }
+        }, 340);
+      }
+
+      function stopBackgroundMelody() {
+        isMusicPlaying = false;
+        clearInterval(musicInterval);
+        document.getElementById("music-label").textContent = "Birthday Melody: OFF";
+        document.getElementById("music-toggle").classList.add("audio-muted");
+      }
+
+      document.getElementById("music-toggle").addEventListener("click", () => {
+        if (isMusicPlaying) stopBackgroundMelody();
+        else startBackgroundMelody();
+      });
+
+      // Page Navigation
+      const pages = [...document.querySelectorAll(".page")];
+      function showPage(id, withTransition = true) {
+        if (withTransition) {
+          const wipe = document.getElementById("flower-wipe");
+          wipe.classList.remove("play");
+          void wipe.offsetWidth;
+          wipe.classList.add("play");
+          playTone(440, "sine", 0.3, 0.06);
+          setTimeout(() => {
+            pages.forEach(p => p.classList.remove("active"));
+            const target = document.getElementById(id);
+            if (target) target.classList.add("active");
+            if (id === "gifts-page" && typeof resetGiftBoxes === "function") resetGiftBoxes();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }, 360);
+        } else {
+          pages.forEach(p => p.classList.remove("active"));
+          const target = document.getElementById(id);
+          if (target) target.classList.add("active");
+          if (id === "gifts-page" && typeof resetGiftBoxes === "function") resetGiftBoxes();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+
+      // COUNTDOWN LOGIC TO 1/1/2027
+      const targetDate = new Date("2027-01-01T00:00:00");
+      const values = {
+        months: document.getElementById("months"),
+        days: document.getElementById("days"),
+        hours: document.getElementById("hours"),
+        minutes: document.getElementById("minutes"),
+        seconds: document.getElementById("seconds")
+      };
+      const countdownStatus = document.getElementById("countdown-status");
+      const beginButton = document.getElementById("begin-button");
+      const localhostSimButton = document.getElementById("localhost-sim-button");
+      const localhostTag = document.getElementById("localhost-tag");
+
+      let hasTriggeredBoom = false;
+
+      function triggerBirthdayBoom() {
+        if (hasTriggeredBoom) return;
+        hasTriggeredBoom = true;
+
+        // Visual flash & sound
+        const boomOverlay = document.getElementById("boom-overlay");
+        boomOverlay.classList.remove("play");
+        void boomOverlay.offsetWidth;
+        boomOverlay.classList.add("play");
+        playBoomSound();
+
+        // Reveal the big begin button
+        beginButton.classList.remove("hidden");
+        beginButton.classList.add("scale-105");
+
+        countdownStatus.innerHTML = "<span class='text-lg font-black text-[#8c2449]'>💥 BOOOOM! THE DATE HAS ARRIVED! HAPPY BIRTHDAY OMNIA! 🎂🎉</span>";
+
+        // Epic multi-stage fireworks
+        const duration = 3.5 * 1000;
+        const animationEnd = Date.now() + duration;
+
+        (function frame() {
+          confetti({
+            particleCount: 10,
+            angle: 60,
+            spread: 60,
+            origin: { x: 0, y: 0.7 },
+            colors: ['#ff3366', '#ffd700', '#ff69b4', '#990033']
+          });
+          confetti({
+            particleCount: 10,
+            angle: 120,
+            spread: 60,
+            origin: { x: 1, y: 0.7 },
+            colors: ['#ff3366', '#ffd700', '#ff69b4', '#990033']
+          });
+          if (Date.now() < animationEnd) {
+            requestAnimationFrame(frame);
+          }
+        })();
+
+        playCelebrationFanfare();
+      }
+
+      function updateCountdown() {
+        const now = new Date();
+        let diff = targetDate - now;
+
+        if (diff <= 0) {
+          // Date has arrived!
+          Object.values(values).forEach(el => el.textContent = "00");
+          triggerBirthdayBoom();
+          return;
+        }
+
+        const sec = 1000, min = sec * 60, hour = min * 60, day = hour * 24;
+        const months = Math.floor(diff / (day * 30.44)); diff -= months * day * 30.44;
+        const days = Math.floor(diff / day); diff %= day;
+        const hours = Math.floor(diff / hour); diff %= hour;
+        const minutes = Math.floor(diff / min); diff %= min;
+        const seconds = Math.floor(diff / sec);
+
+        values.months.textContent = String(months).padStart(2, "0");
+        values.days.textContent = String(days).padStart(2, "0");
+        values.hours.textContent = String(hours).padStart(2, "0");
+        values.minutes.textContent = String(minutes).padStart(2, "0");
+        values.seconds.textContent = String(seconds).padStart(2, "0");
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      beginButton.addEventListener("click", () => {
+        showPage("detective-page"); // Go to Detective Investigation Stage!
+        startBackgroundMelody();
+      });
+
+      // DETECTIVE "ARE YOU OMNIA?" INVESTIGATION LOGIC
+      const scanBtn = document.getElementById("scan-identity-btn");
+      const step1 = document.getElementById("scan-step-1");
+      const step2 = document.getElementById("scan-step-2");
+      const step3 = document.getElementById("scan-step-3");
+      const stampBadge = document.getElementById("stamp-badge");
+      const proceedLockBtn = document.getElementById("proceed-to-lock-btn");
+
+      scanBtn.addEventListener("click", () => {
+        playTone(350, "sawtooth", 0.2, 0.15);
+        scanBtn.disabled = true;
+        scanBtn.innerHTML = "<span>SCANNING BIOMETRICS... 🔍</span>";
+
+        setTimeout(() => {
+          step1.classList.remove("hidden");
+          playTone(450, "sine", 0.15, 0.1);
+        }, 600);
+
+        setTimeout(() => {
+          step2.classList.remove("hidden");
+          playTone(550, "sine", 0.15, 0.1);
+        }, 1300);
+
+        setTimeout(() => {
+          step3.classList.remove("hidden");
+          playTone(650, "sine", 0.15, 0.1);
+        }, 2000);
+
+        setTimeout(() => {
+          // Slam the stamp down!
+          stampBadge.classList.add("stamped");
+          playBoomSound();
+          confetti({ particleCount: 70, spread: 70, origin: { y: 0.6 } });
+          scanBtn.classList.add("hidden");
+          proceedLockBtn.classList.remove("hidden");
+        }, 2800);
+      });
+
+      proceedLockBtn.addEventListener("click", () => {
+        showPage("lock-page");
+      });
+
+      // SECRET MEMORY LOCK LOGIC (First message: 07/07/2026)
+      const daySelect = document.getElementById("pass-day");
+      const monthSelect = document.getElementById("pass-month");
+      const yearSelect = document.getElementById("pass-year");
+
+      daySelect.innerHTML = '<option value="">Day</option>' + Array.from({length: 31}, (_, i) => {
+        const val = String(i + 1).padStart(2, "0");
+        return `<option value="${val}">${val}</option>`;
+      }).join("");
+
+      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      monthSelect.innerHTML = '<option value="">Month</option>' + monthNames.map((m, i) => {
+        const val = String(i + 1).padStart(2, "0");
+        return `<option value="${val}">${m} (${val})</option>`;
+      }).join("");
+
+      yearSelect.innerHTML = '<option value="">Year</option><option value="2026" selected>2026</option><option value="2027">2027</option>';
+
+      let enteredPin = "";
+      const pinDots = document.querySelectorAll(".pin-dot");
+
+      function updatePinDisplay() {
+        pinDots.forEach((dot, idx) => {
+          if (idx < enteredPin.length) {
+            dot.classList.add("bg-[#d95d7c]", "scale-110");
+            dot.classList.remove("bg-white");
+          } else {
+            dot.classList.remove("bg-[#d95d7c]", "scale-110");
+            dot.classList.add("bg-white");
+          }
+        });
+      }
+
+      document.querySelectorAll("[data-key]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          if (enteredPin.length < 8) {
+            enteredPin += btn.dataset.key;
+            playTone(300 + enteredPin.length * 40, "sine", 0.1, 0.1);
+            updatePinDisplay();
+          }
+        });
+      });
+
+      document.getElementById("clear-key").addEventListener("click", () => {
+        enteredPin = "";
+        updatePinDisplay();
+        daySelect.value = "";
+        monthSelect.value = "";
+        playTone(220, "sine", 0.15, 0.1);
+      });
+
+      document.getElementById("backspace-key").addEventListener("click", () => {
+        enteredPin = enteredPin.slice(0, -1);
+        updatePinDisplay();
+        playTone(260, "sine", 0.1, 0.1);
+      });
+
+      document.getElementById("hint-button").addEventListener("click", () => {
+        document.getElementById("hint-copy").classList.toggle("hidden");
+      });
+
+      document.getElementById("bypass-button").addEventListener("click", () => {
+        const status = document.getElementById("pass-status");
+        status.textContent = "Mercy granted! You're far too pretty to be locked out 🥰";
+        status.style.color = "#16a34a";
+        playChime();
+        setTimeout(() => {
+          showPage("letter-page");
+        }, 900);
+      });
+
+      document.getElementById("passcode-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const dropCode = `${daySelect.value}${monthSelect.value}${yearSelect.value}`;
+        const status = document.getElementById("pass-status");
+
+        // Valid code for the first message date: 07/07/2026.
+        const validCodes = ["07072026"];
+
+        if (validCodes.includes(enteredPin) || validCodes.includes(dropCode) || (daySelect.value === "07" && monthSelect.value === "07" && yearSelect.value === "2026")) {
+          status.textContent = "✨ Access Granted! Opening Omnia's letter...";
+          status.style.color = "#16a34a";
+          playChime();
+          confetti({ particleCount: 60, spread: 70, origin: { y: 0.6 } });
+          setTimeout(() => showPage("letter-page"), 700);
+        } else {
+          status.textContent = "Hmm, not quite! Try the hint or use 'Plead for Mercy' 💖";
+          status.style.color = "#a13252";
+          playTone(180, "sawtooth", 0.3, 0.12);
+          enteredPin = "";
+          updatePinDisplay();
+        }
+      });
+
+      // FLOATING CENTER VINTAGE PARCHMENT LETTER MODAL
+      const parchmentModal = document.getElementById("parchment-modal");
+      const closeParchmentX = document.getElementById("close-parchment-x");
+      let returnToGiftsAfterLetter = false;
+      function openParchmentLetter(fromGiftBox = false) {
+        returnToGiftsAfterLetter = fromGiftBox;
+        parchmentModal.classList.add("active");
+        playTone(650, "triangle", 0.35, 0.15);
+        confetti({ particleCount: 60, spread: 70, origin: { y: 0.5 }, colors: ['#ffd700', '#d95d7c', '#ffffff', '#6f1d3a'] });
+      }
+      function closeParchmentLetter() {
+        parchmentModal.classList.remove("active");
+        if (returnToGiftsAfterLetter) {
+          returnToGiftsAfterLetter = false;
+          return;
+        }
+        showPage("gifts-page");
+      }
+      function dismissParchmentLetter() {
+        parchmentModal.classList.remove("active");
+      }
+
+      document.getElementById("open-letter-modal-btn").addEventListener("click", () => openParchmentLetter(false));
+      document.getElementById("first-envelope").addEventListener("click", () => openParchmentLetter(false));
+      document.getElementById("close-parchment-btn").addEventListener("click", closeParchmentLetter);
+      if (closeParchmentX) closeParchmentX.addEventListener("click", dismissParchmentLetter);
+      parchmentModal.addEventListener("click", (e) => {
+        if (e.target === parchmentModal) dismissParchmentLetter();
+      });
+
+      // THE VIRAL 'PLS ACCEPT THE GIFT' ESCALATING DODGE LOGIC
+      const noBtn = document.getElementById("no-button");
+      const yesBtn = document.getElementById("yes-button");
+      const catImg = document.getElementById("cat-reaction-img");
+      const catSubtitle = document.getElementById("cat-subtitle");
+      const questionStatus = document.getElementById("question-status");
+      const questionZone = document.getElementById("question-zone");
+
+      let dodgeCount = 0;
+      let yesScale = 1;
+
+      const reactions = [
+        {
+          img: "assets/cat_stage0_clean.png",
+          subtitle: "Look how politely the kitty is offering you flowers! 🌸🥺",
+          hint: "(Go ahead, accept the gift!)"
+        },
+        {
+          img: "assets/cat_pleading.jpg",
+          subtitle: "Wait... did your finger slip? Look at these puppy eyes! 🥺💔",
+          hint: "Are you really saying no to this adorable kitten?!"
+        },
+        {
+          img: "assets/cat_crying.jpg",
+          subtitle: "LOOK WHAT YOU DID! The kitten is weeping floods of tears!! 😭🌧️",
+          hint: "The tragedy! You are breaking a poor kitty's heart!"
+        },
+        {
+          img: "assets/cat_shocked.jpg",
+          subtitle: "WHAT?! DID THAT JUST HAPPEN?! 'NO' IS AN ILLEGAL MOVE! 😱🚨",
+          hint: "System Alert: 'NO' button has suffered emotional damage!"
+        },
+        {
+          img: "assets/cat_pleading.jpg",
+          subtitle: "Pookie please!! There are 3 mystery gifts waiting for you! 💖✨",
+          hint: "Notice how the YES button is calling your name..."
+        }
+      ];
+
+      function dodgeNoButton() {
+        dodgeCount++;
+        playBoingSound();
+
+        const rect = questionZone.getBoundingClientRect();
+        const maxX = Math.max(10, rect.width - 120);
+        const maxY = 130;
+        const randomX = (Math.random() - 0.5) * maxX;
+        const randomY = (Math.random() - 0.5) * maxY;
+
+        noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+        const reactionIndex = Math.min(dodgeCount, reactions.length - 1);
+        const currentReaction = reactions[reactionIndex];
+
+        catImg.src = currentReaction.img;
+        catSubtitle.textContent = currentReaction.subtitle;
+        questionStatus.textContent = currentReaction.hint;
+
+        yesScale += 0.18;
+        yesBtn.style.transform = `scale(${yesScale})`;
+
+        if (dodgeCount === 3) {
+          noBtn.textContent = "Are you sure? 🤨";
+        } else if (dodgeCount === 4) {
+          noBtn.textContent = "Wait, don't! 🙈";
+        } else if (dodgeCount === 5) {
+          noBtn.textContent = "Resistance is futile! 😂";
+          noBtn.style.opacity = "0.75";
+        } else if (dodgeCount >= 6) {
+          noBtn.textContent = "Okay, I meant YES! 💖";
+          noBtn.style.opacity = "1";
+          noBtn.style.transform = "none";
+          noBtn.className = "btn-primary rounded-full px-7 py-3 text-sm sm:text-base font-bold shadow-lg animate-pulse";
+          noBtn.removeEventListener("mouseenter", dodgeNoButton);
+          noBtn.removeEventListener("touchstart", dodgeNoButton);
+          noBtn.onclick = () => yesBtn.click();
+        }
+      }
+
+      noBtn.addEventListener("mouseenter", dodgeNoButton);
+      noBtn.addEventListener("click", dodgeNoButton);
+      noBtn.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        dodgeNoButton();
+      });
+
+      // When YES is clicked:
+      yesBtn.addEventListener("click", () => {
+        playCelebrationFanfare();
+        catImg.src = "assets/cat_celebration.jpg";
+        catSubtitle.textContent = "YAAAY!! BEST DECISION EVER! 🎉🥳💖";
+        questionStatus.textContent = "Surprise unlocked! Opening your mystery gifts...";
+
+        const duration = 2.5 * 1000;
+        const end = Date.now() + duration;
+
+        (function frame() {
+          confetti({
+            particleCount: 7,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: ['#d95d7c', '#ffd1dd', '#c99752', '#6f1d3a']
+          });
+          confetti({
+            particleCount: 7,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: ['#d95d7c', '#ffd1dd', '#c99752', '#6f1d3a']
+          });
+          if (Date.now() < end) requestAnimationFrame(frame);
+        })();
+
+        setTimeout(() => {
+          showPage("gifts-page");
+          playHappyBirthdaySong();
+        }, 2200);
+      });
+
+      // 3D MYSTERY GIFT CARDS UNBOXING
+      let openedGiftsCount = 0;
+      const openedSet = new Set();
+      const giftCards = document.querySelectorAll(".gift-card");
+      const giftGrid = document.getElementById("gift-grid");
+      const giftsCounter = document.getElementById("gifts-counter");
+      const toFeedbackBtn = document.getElementById("to-feedback-button");
+      const genieSpeech = document.getElementById("genie-speech");
+      let giftRevealIndex = 0;
+      const giftRevealStages = [
+        { icon: "mail-open", label: "The First Note", copy: "I wanted to begin with something honest: knowing you has become one of the things I genuinely value. Your happiness matters to me, and I hope this birthday reminds you how appreciated you are.", footer: "A small truth, written gently 💌" },
+        { icon: "gem", label: "A Little Sparkle", image: "assets/necklace.PNG", copy: "Hadohlek lamma teegy, zay ma waadtak... aw lama agee Aswan, mesh motaaked, bas 50% 😅", footer: "Chosen especially for Omnia ✨" },
+        { icon: "image", label: "A Photo Made For You", image: "assets/cat_gift.png", copy: "And finally, a little picture made to make you smile. Your happiness is one of my favorite things to see, today and on all the ordinary days too.", footer: "For your smile, Omnia 💖" }
+      ];
+
+      function shuffleCards() {
+        const cards = [...giftCards];
+        for (let index = cards.length - 1; index > 0; index--) {
+          const swapIndex = Math.floor(Math.random() * (index + 1));
+          [cards[index], cards[swapIndex]] = [cards[swapIndex], cards[index]];
+        }
+        cards.forEach(card => giftGrid.appendChild(card));
+      }
+
+      function setMysteryBoxFace(card, stage) {
+        const front = card.querySelector(".gift-face:not(.gift-back)");
+        const back = card.querySelector(".gift-back");
+        front.className = "gift-face mystery-box-front flex flex-col items-center justify-center p-6 text-center relative";
+        front.innerHTML = `<div class="mystery-box-ribbon" aria-hidden="true"></div><i data-lucide="gift" class="relative z-10 w-16 h-16 text-white drop-shadow-lg"></i><span class="relative z-10 mt-4 text-xs font-bold uppercase tracking-[.2em] text-[#6f1d3a]">Mystery Box</span><span class="relative z-10 mt-1 text-sm font-semibold text-[#704b59]">Open to reveal</span>`;
+        back.className = "gift-face gift-back gift-reveal-content text-center p-5";
+        back.innerHTML = stage ? `<i data-lucide="${stage.icon}" class="w-10 h-10 text-[#c99752] mb-2"></i>${stage.image ? `<img src="${stage.image}" alt="${stage.label}" class="w-full max-h-36 object-contain rounded-xl border border-[#ffd3df] bg-white mb-3">` : ""}<h4 class="display-font text-xl font-bold text-[#6f1d3a] mb-2">${stage.label}</h4><p class="hand-font text-xl text-[#543343] leading-relaxed">${stage.copy}</p><span class="mt-3 inline-block text-[11px] font-bold tracking-widest text-[#a42c4e] uppercase bg-white/85 px-3 py-1 rounded-full border border-[#f3cad5]">${stage.footer}</span>` : `<i data-lucide="sparkles" class="w-10 h-10 text-[#c99752] mb-2"></i><h4 class="display-font text-xl font-bold text-[#6f1d3a]">A surprise is waiting...</h4>`;
+        lucide.createIcons();
+      }
+
+      function resetGiftBoxes() {
+        openedGiftsCount = 0;
+        giftRevealIndex = 0;
+        openedSet.clear();
+        giftsCounter.textContent = "Gifts Unwrapped: 0 / 3 🎁";
+        toFeedbackBtn.classList.add("hidden");
+        genieSpeech.textContent = "My Omnia, three mystery boxes are waiting. Open any box to discover what comes next:";
+        shuffleCards();
+        giftCards.forEach(card => {
+          card.classList.remove("open");
+          card.setAttribute("aria-pressed", "false");
+          setMysteryBoxFace(card, null);
+        });
+      }
+
+      // LUXURY NECKLACE POPUP MODAL
+      const necklaceModal = document.getElementById("necklace-modal");
+      const closeNecklaceX = document.getElementById("close-necklace-x");
+      const wearNecklaceBtn = document.getElementById("wear-necklace-btn");
+
+      function openNecklaceModal() {
+        necklaceModal.classList.add("active");
+        playTone(783.99, "triangle", 0.4, 0.18);
+        playChime();
+        confetti({ particleCount: 75, spread: 80, origin: { y: 0.5 }, colors: ['#ffd700', '#ff8da7', '#ffffff', '#d95d7c'] });
+      }
+
+      function openGiftStagePopup(stage) {
+        const isNecklace = stage === giftRevealStages[1];
+        document.getElementById("necklace-gift-label").textContent = isNecklace ? "Special Gift #2 // For My Omnia" : "Special Gift #3 // Made For Omnia";
+        document.getElementById("necklace-gift-title").textContent = isNecklace ? "A Little Sparkle 💎✨" : "A Photo Made For You 💖";
+        document.getElementById("necklace-gift-subtitle").textContent = isNecklace ? "A promise for when we meet" : "Something made to bring you a smile";
+        const image = document.getElementById("necklace-gift-image");
+        image.src = stage.image;
+        image.alt = stage.label;
+        image.style.objectFit = isNecklace ? "cover" : "contain";
+        document.getElementById("necklace-gift-copy").textContent = `"${stage.copy}"`;
+        document.querySelector("#necklace-modal .mt-3 p").textContent = isNecklace ? "✨ Hadohlek lamma teegy — Adham 💖" : "✨ Made especially for Omnia — Adham 💖";
+        document.getElementById("wear-necklace-btn").querySelector("span").textContent = isNecklace ? "Keep It With Love 🥰💖" : "Keep This Memory 💖";
+        openNecklaceModal();
+      }
+
+      function closeNecklaceModal() {
+        necklaceModal.classList.remove("active");
+      }
+
+      if (closeNecklaceX) closeNecklaceX.addEventListener("click", closeNecklaceModal);
+      if (wearNecklaceBtn) wearNecklaceBtn.addEventListener("click", closeNecklaceModal);
+      necklaceModal.addEventListener("click", (e) => {
+        if (e.target === necklaceModal) closeNecklaceModal();
+      });
+
+      giftCards.forEach(card => {
+        card.addEventListener("click", () => {
+          if (card.classList.contains("open") || giftRevealIndex >= giftRevealStages.length) return;
+          const stage = giftRevealStages[giftRevealIndex];
+          setMysteryBoxFace(card, stage);
+          card.classList.add("open");
+          card.setAttribute("aria-pressed", "true");
+          openedSet.add(card.dataset.card);
+          giftRevealIndex++;
+          openedGiftsCount++;
+          giftsCounter.textContent = `Gifts Unwrapped: ${openedGiftsCount} / 3 🎁`;
+          playChime();
+          confetti({ particleCount: 45, spread: 60, origin: { y: 0.6 } });
+
+          if (giftRevealIndex === 1) {
+            openParchmentLetter(true);
+          } else if (giftRevealIndex > 1) {
+            openGiftStagePopup(stage);
+          }
+
+          if (openedGiftsCount === 3) {
+            genieSpeech.innerHTML = "✨ <strong>All three surprises are revealed!</strong> Now, be honest...";
+            toFeedbackBtn.classList.remove("hidden");
+            playCelebrationFanfare();
+            confetti({ particleCount: 90, spread: 80, origin: { y: 0.5 } });
+          }
+        });
+      });
+
+      // FUNNY MEME GALLERY CAROUSEL (Gift #3)
+      const memes = [
+        { img: "assets/cat_shocked.jpg", caption: "Exhibit A: Omnia when someone says 'I brought snacks!' 🍕" },
+        { img: "assets/funny_cat2.jpg", caption: "Exhibit B: Omnia silently judging the entire room with love 😼💖" },
+        { img: "assets/cat_crying.jpg", caption: "Exhibit C: Omnia when her favorite TV show ends or dessert is finished 😭🍰" },
+        { img: "assets/cat_celebration.jpg", caption: "Exhibit D: Omnia realizing she is the prettiest person alive today! 🥳🎉" }
+      ];
+      let currentMemeIdx = 0;
+      const memeImg = document.getElementById("meme-gallery-img");
+      const memeCaption = document.getElementById("meme-caption");
+      const nextMemeBtn = document.getElementById("next-meme-btn");
+
+      nextMemeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        currentMemeIdx = (currentMemeIdx + 1) % memes.length;
+        memeImg.src = memes[currentMemeIdx].img;
+        memeCaption.textContent = memes[currentMemeIdx].caption;
+        playTone(400 + currentMemeIdx * 60, "triangle", 0.15, 0.1);
+      });
+
+      toFeedbackBtn.addEventListener("click", () => {
+        showPage("feedback-page");
+      });
+
+      // "DO YOU LIKE THE GIFTS?" INTERACTIVE QUESTION (PAGE 7)
+      const yesFeedbackBtn = document.getElementById("yes-feedback-btn");
+      const noFeedbackBtn = document.getElementById("no-feedback-btn");
+      const feedbackCatImg = document.getElementById("feedback-cat-img");
+      const feedbackSubtitle = document.getElementById("feedback-subtitle");
+      const feedbackStatus = document.getElementById("feedback-status");
+      const feedbackZone = document.getElementById("feedback-zone");
+
+      let feedbackDodgeCount = 0;
+      let feedbackYesScale = 1;
+
+      function dodgeFeedbackNo() {
+        feedbackDodgeCount++;
+        playBoingSound();
+
+        const rect = feedbackZone.getBoundingClientRect();
+        const maxX = Math.max(10, rect.width - 120);
+        const maxY = 130;
+        const randomX = (Math.random() - 0.5) * maxX;
+        const randomY = (Math.random() - 0.5) * maxY;
+
+        noFeedbackBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+        feedbackYesScale += 0.18;
+        yesFeedbackBtn.style.transform = `scale(${feedbackYesScale})`;
+
+        if (feedbackDodgeCount === 1) {
+          feedbackCatImg.src = "assets/cat_crying.jpg";
+          feedbackSubtitle.textContent = "What?! You're breaking my heart! Look at the tears 😭💔";
+          feedbackStatus.textContent = "Error 404: Dissatisfaction is not an option!";
+          noFeedbackBtn.textContent = "Are you sure? 🤨";
+        } else if (feedbackDodgeCount === 2) {
+          feedbackCatImg.src = "assets/cat_shocked.jpg";
+          feedbackSubtitle.textContent = "WHAT?! Even with the necklace?! How dare you! 😂😱";
+          feedbackStatus.textContent = "System Alert: Return policy expired 10 minutes ago!";
+          noFeedbackBtn.textContent = "Wait, don't! 🙈";
+        } else if (feedbackDodgeCount >= 3) {
+          feedbackCatImg.src = "assets/cat_pleading.jpg";
+          feedbackSubtitle.textContent = "Pookie please, you know you love it all! 🥰";
+          noFeedbackBtn.textContent = "Just kidding, I LOVE IT! 💖";
+          noFeedbackBtn.style.transform = "none";
+          noFeedbackBtn.className = "btn-primary rounded-full px-7 py-3 text-sm sm:text-base font-bold shadow-lg animate-pulse";
+          noFeedbackBtn.removeEventListener("mouseenter", dodgeFeedbackNo);
+          noFeedbackBtn.removeEventListener("touchstart", dodgeFeedbackNo);
+          noFeedbackBtn.onclick = () => yesFeedbackBtn.click();
+        }
+      }
+
+      noFeedbackBtn.addEventListener("mouseenter", dodgeFeedbackNo);
+      noFeedbackBtn.addEventListener("click", dodgeFeedbackNo);
+      noFeedbackBtn.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        dodgeFeedbackNo();
+      });
+
+      yesFeedbackBtn.addEventListener("click", () => {
+        playCelebrationFanfare();
+        feedbackCatImg.src = "assets/cat_celebration.jpg";
+        feedbackSubtitle.textContent = "YAAAY! I KNEW YOU'D LOVE IT!! Best birthday girl ever! 🥳💖✨";
+        feedbackStatus.textContent = "Unlocking your grand birthday keepsake...";
+
+        confetti({
+          particleCount: 100,
+          spread: 80,
+          origin: { y: 0.5 },
+          colors: ['#ff8da7', '#c99752', '#d95d7c', '#ffffff']
+        });
+
+        setTimeout(() => {
+          showPage("final-page");
+        }, 2000);
+      });
+
+      // FINAL KEEPSAKE LETTER MODAL LOGIC
+      const finalLetterModal = document.getElementById("final-letter-modal");
+      const closeFinalLetterX = document.getElementById("close-final-letter-x");
+      const closeFinalLetterBtn = document.getElementById("close-final-letter-btn");
+      const openFinalLetterBtn = document.getElementById("open-final-letter-btn");
+      const finalEnvelope = document.getElementById("final-envelope");
+
+      function openFinalLetter() {
+        finalEnvelope.classList.add("open");
+        finalLetterModal.classList.add("active");
+        playCelebrationFanfare();
+        confetti({ particleCount: 110, spread: 90, origin: { y: 0.5 }, colors: ['#ffd700', '#ff8da7', '#ffffff', '#6f1d3a'] });
+      }
+
+      function closeFinalLetter() {
+        finalLetterModal.classList.remove("active");
+      }
+
+      if (finalEnvelope) finalEnvelope.addEventListener("click", openFinalLetter);
+      if (openFinalLetterBtn) openFinalLetterBtn.addEventListener("click", openFinalLetter);
+      if (closeFinalLetterX) closeFinalLetterX.addEventListener("click", closeFinalLetter);
+      if (closeFinalLetterBtn) closeFinalLetterBtn.addEventListener("click", () => {
+        closeFinalLetter();
+        showPage("feelings-page");
+      });
+      finalLetterModal.addEventListener("click", (e) => {
+        if (e.target === finalLetterModal) closeFinalLetter();
+      });
+
+      const feelingsResponse = document.getElementById("feelings-response");
+      document.getElementById("feelings-yes").addEventListener("click", () => {
+        feelingsResponse.textContent = "Then you probably understand what I was trying to say without me making a whole dramatic speech. You’re genuinely special to me, Omnia, and I’m really glad you’re in my life. 💖";
+        playChime();
+        confetti({ particleCount: 80, spread: 75, origin: { y: 0.55 }, colors: ["#d95d7c", "#ffd1dd", "#c99752", "#ffffff"] });
+      });
+      document.getElementById("feelings-time").addEventListener("click", () => {
+        feelingsResponse.textContent = "Fair enough. No dramatic confession, no awkwardness. Just know that you matter to me a lot, even when I pretend to be normal about it. 🌷";
+        playTone(440, "sine", 0.3, 0.08);
+      });
+
+      document.getElementById("confetti-boost").addEventListener("click", () => {
+        playCelebrationFanfare();
+        confetti({
+          particleCount: 120,
+          spread: 100,
+          origin: { y: 0.6 },
+          colors: ['#ff8da7', '#c99752', '#d95d7c', '#ffffff', '#ffd1dd']
+        });
+      });
+
+      document.getElementById("restart-journey").addEventListener("click", () => {
+        dodgeCount = 0;
+        yesScale = 1;
+        yesBtn.style.transform = "scale(1)";
+        noBtn.style.transform = "none";
+        noBtn.textContent = "No... 🙅‍♀️";
+        noBtn.style.opacity = "1";
+        catImg.src = "assets/cat_stage0_clean.png";
+        catSubtitle.textContent = reactions[0].subtitle;
+        questionStatus.textContent = "(Warning: Clicking 'No' may cause uncontrollable cute drama!)";
+
+        feedbackDodgeCount = 0;
+        feedbackYesScale = 1;
+        yesFeedbackBtn.style.transform = "scale(1)";
+        noFeedbackBtn.style.transform = "none";
+        noFeedbackBtn.textContent = "No, not really... 🙄";
+        feedbackCatImg.src = "assets/cat_pleading.jpg";
+        feedbackSubtitle.textContent = "Be completely honest... did you love the surprises and your necklace? 🥺💖";
+        feedbackStatus.textContent = "(Warning: Selecting 'No' violates the Universal Birthday Treaty!)";
+
+        resetGiftBoxes();
+        document.getElementById("final-envelope").classList.remove("open");
+
+        // Close all modals
+        parchmentModal.classList.remove("active");
+        necklaceModal.classList.remove("active");
+        finalLetterModal.classList.remove("active");
+
+        showPage("countdown-page");
+      });
+    });
+  </script>
+ </body>
+</html>
