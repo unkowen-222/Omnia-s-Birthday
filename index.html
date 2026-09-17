@@ -610,6 +610,23 @@
     .feelings-page-panel::before { content: "♡"; position: absolute; top: -1.8rem; right: 1.5rem; color: rgba(217, 93, 124, 0.14); font-family: Georgia, serif; font-size: 11rem; line-height: 1; pointer-events: none; }
     .feelings-answer { transition: transform 0.25s ease, box-shadow 0.25s ease; }
     .feelings-answer:hover, .feelings-answer:focus-visible { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(111, 29, 58, 0.15); outline: none; }
+    .romantic-shell.dark-mode { background: radial-gradient(circle at 12% 12%, #8f1730 0%, #3d0715 42%, #10040a 100%); color: #f9e8ec; }
+    .romantic-shell.dark-mode::before { background: radial-gradient(circle at 18% 18%, rgba(239, 68, 68, 0.34) 0%, transparent 38%), radial-gradient(circle at 84% 16%, rgba(190, 24, 93, 0.28) 0%, transparent 34%), radial-gradient(circle at 52% 92%, rgba(127, 29, 29, 0.5) 0%, transparent 52%); }
+    .romantic-shell.dark-mode::after { opacity: 0.18; background-image: radial-gradient(rgba(255, 220, 232, 0.28) 0.75px, transparent 0.75px); }
+    .romantic-shell.dark-mode .flower-backdrop { opacity: 0.08; filter: saturate(1.5) brightness(0.45) blur(1px); }
+    .romantic-shell.dark-mode .panel { background-color: rgba(24, 8, 14, 0.84) !important; border-color: rgba(255, 170, 190, 0.22) !important; box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 210, 220, 0.08) inset; }
+    .romantic-shell.dark-mode .bg-white, .romantic-shell.dark-mode .bg-white\/80, .romantic-shell.dark-mode .bg-white\/85, .romantic-shell.dark-mode .bg-white\/90 { background-color: rgba(37, 12, 21, 0.88) !important; }
+    .romantic-shell.dark-mode .text-\[\#6f1d3a\] { color: #ffd6df !important; }
+    .romantic-shell.dark-mode .text-\[\#704b59\] { color: #f1b9c7 !important; }
+    .romantic-shell.dark-mode .text-\[\#543343\] { color: #f6d6de !important; }
+    .romantic-shell.dark-mode .text-\[\#a42c4e\], .romantic-shell.dark-mode .text-\[\#a13252\] { color: #ff9eb3 !important; }
+    .romantic-shell.dark-mode .border-\[\#ffd1dd\], .romantic-shell.dark-mode .border-\[\#ffd3df\], .romantic-shell.dark-mode .border-white\/90 { border-color: rgba(255, 158, 179, 0.3) !important; }
+    .romantic-shell.dark-mode .bg-\[\#fde8ee\], .romantic-shell.dark-mode .bg-\[\#fff0f4\], .romantic-shell.dark-mode .bg-\[\#fff8eb\] { background-color: rgba(122, 22, 47, 0.72) !important; }
+    .romantic-shell.dark-mode .mystery-box-front { background: linear-gradient(145deg, #66132b, #2e0713); border-color: rgba(255, 177, 94, 0.55); }
+    .romantic-shell.dark-mode #music-toggle, .romantic-shell.dark-mode #dark-mode-toggle { background-color: rgba(24, 8, 14, 0.88) !important; color: #ffd6df !important; }
+    .dark-mode-toggle { border: 1px solid rgba(111, 29, 58, 0.14); }
+    .dark-mode-toggle .dark-mode-knob { transition: transform 0.25s ease, background-color 0.25s ease; }
+    .dark-mode-toggle[aria-pressed="true"] .dark-mode-knob { transform: translateX(1.25rem); background-color: #fca5a5; }
   </style>
  </head>
  <body>
@@ -643,7 +660,16 @@
     <div class="bloom"></div>
    </div>
 
-   <!-- Floating Music Controller (Top Right) -->
+  <!-- Dark Mode Controller (Top Left) -->
+  <button id="dark-mode-toggle" type="button" class="dark-mode-toggle fixed top-4 left-4 z-40 flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 text-xs font-semibold text-[#6f1d3a] shadow-lg backdrop-blur-md transition-all hover:bg-white hover:shadow-xl" title="Toggle dark mode" aria-label="Toggle dark mode" aria-pressed="false">
+   <span class="flex h-4 w-8 items-center rounded-full bg-[#f4c2d0] p-0.5">
+    <span class="dark-mode-knob h-3 w-3 rounded-full bg-white shadow-sm"></span>
+   </span>
+   <i data-lucide="moon" class="h-3.5 w-3.5"></i>
+   <span class="hidden sm:inline">Night Mode</span>
+  </button>
+
+  <!-- Floating Music Controller (Top Right) -->
    <header class="fixed top-4 right-4 z-40 flex items-center gap-2">
     <button id="music-toggle" class="flex items-center gap-2.5 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-[#6f1d3a] shadow-lg backdrop-blur-md transition-all hover:bg-white hover:shadow-xl" title="Toggle Romantic Music">
      <span class="flex items-end gap-[2px] h-4" id="eq-container">
@@ -1326,6 +1352,18 @@
     document.addEventListener("DOMContentLoaded", () => {
       // Initialize Lucide Icons
       lucide.createIcons();
+
+      const shell = document.querySelector(".romantic-shell");
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+      const savedTheme = localStorage.getItem("omnia-theme");
+      function setDarkMode(enabled) {
+        shell.classList.toggle("dark-mode", enabled);
+        darkModeToggle.setAttribute("aria-pressed", String(enabled));
+        darkModeToggle.setAttribute("aria-label", enabled ? "Switch to light mode" : "Switch to dark mode");
+        localStorage.setItem("omnia-theme", enabled ? "dark" : "light");
+      }
+      setDarkMode(savedTheme === "dark");
+      darkModeToggle.addEventListener("click", () => setDarkMode(!shell.classList.contains("dark-mode")));
 
       // DYNAMIC FALLING HEARTS BACKGROUND ENGINE (All Pages, Top to Bottom)
       const heartsCanvas = document.getElementById("falling-hearts-canvas");
